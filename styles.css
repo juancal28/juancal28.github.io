@@ -799,6 +799,8 @@ section {
     width: 30px;
     height: 30px;
     object-fit: contain;
+    max-width: 30px;
+    max-height: 30px;
 }
 
 .contact-details h4 {

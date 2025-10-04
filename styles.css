@@ -146,6 +146,43 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.5;
 }
 
+.hero-floating-elements {
+    position: relative;
+    height: 80px;
+    margin-bottom: 1rem;
+}
+
+.hero-floating-elements .element {
+    position: absolute;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #007aff, #5856d6);
+    animation: float 6s ease-in-out infinite;
+}
+
+.hero-floating-elements .element-1 {
+    width: 40px;
+    height: 40px;
+    top: 10px;
+    left: 20px;
+    animation-delay: 0s;
+}
+
+.hero-floating-elements .element-2 {
+    width: 60px;
+    height: 60px;
+    top: 0px;
+    right: 30px;
+    animation-delay: 2s;
+}
+
+.hero-floating-elements .element-3 {
+    width: 30px;
+    height: 30px;
+    bottom: 10px;
+    left: 50%;
+    animation-delay: 4s;
+}
+
 .hero-buttons {
     display: flex;
     gap: 1rem;
@@ -189,7 +226,40 @@ h1, h2, h3, h4, h5, h6 {
 /* Hero Visual */
 .hero-visual {
     position: relative;
-    height: 400px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+    border: 4px solid white;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.hero-image:hover {
+    transform: scale(1.05);
+}
+
+.image-caption {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 0;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .floating-elements {
@@ -313,27 +383,98 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.image-placeholder {
-    width: 300px;
     height: 300px;
-    background: linear-gradient(135deg, #f5f5f7, #e5e5e7);
+    position: relative;
+}
+
+.about-images-grid {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    height: 300px;
+}
+
+.image-container {
+    position: absolute;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.image-container:first-child {
+    top: 20px;
+    left: 20px;
+    transform: rotate(-8deg);
+    z-index: 2;
+}
+
+.image-container:last-child {
+    bottom: 20px;
+    right: 20px;
+    transform: rotate(12deg);
+    z-index: 1;
+}
+
+.image-container:hover {
+    transform: rotate(0deg) scale(1.1) !important;
+    z-index: 10 !important;
+}
+
+.image-container:hover:first-child {
+    left: 10px;
+    top: 10px;
+}
+
+.image-container:hover:last-child {
+    right: 10px;
+    bottom: 10px;
+}
+
+.about-image-item {
+    width: 250px;
+    height: 300px;
     border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px dashed #d2d2d7;
+    object-fit: cover;
+    border: 3px solid white;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: block;
 }
 
-.placeholder-content {
-    text-align: center;
-    color: #8e8e93;
+.image-container:hover .about-image-item {
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
 }
 
-.placeholder-icon {
-    font-size: 4rem;
-    margin-bottom: 1rem;
+.image-caption-tilted {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin: 0;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    transform-origin: center;
+}
+
+.image-container:hover .image-caption-tilted {
+    opacity: 1;
+    transform: translateX(-50%) rotate(0deg);
+}
+
+.image-container:first-child .image-caption-tilted {
+    transform: translateX(-50%) rotate(8deg);
+}
+
+.image-container:last-child .image-caption-tilted {
+    transform: translateX(-50%) rotate(-12deg);
 }
 
 /* Projects Section */

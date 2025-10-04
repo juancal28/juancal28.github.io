@@ -180,13 +180,17 @@ window.addEventListener('scroll', () => {
 });
 
 // Typing effect for hero title
-function typeWriter(element, text, speed = 100) {
+function typeWriterAnimated(element, staticText, animatedText, speed = 100) {
+    // Set the static text immediately
+    element.innerHTML = staticText + '<br>';
+    
     let i = 0;
-    element.innerHTML = '';
+    const animatedSpan = document.createElement('span');
+    element.appendChild(animatedSpan);
     
     function type() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
+        if (i < animatedText.length) {
+            animatedSpan.innerHTML += animatedText.charAt(i);
             i++;
             setTimeout(type, speed);
         }
@@ -199,9 +203,10 @@ function typeWriter(element, text, speed = 100) {
 document.addEventListener('DOMContentLoaded', () => {
     const heroTitle = document.querySelector('.hero-title');
     if (heroTitle) {
-        const originalText = heroTitle.textContent;
+        const staticText = 'Hi!';
+        const animatedText = 'I\'m Juan Calderon!';
         setTimeout(() => {
-            typeWriter(heroTitle, originalText, 50);
+            typeWriterAnimated(heroTitle, staticText, animatedText, 80);
         }, 1000);
     }
 });

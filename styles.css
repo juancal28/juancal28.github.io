@@ -793,14 +793,17 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
 }
 
 .contact-icon-image {
-    width: 30px;
-    height: 30px;
-    object-fit: contain;
-    max-width: 30px;
-    max-height: 30px;
+    width: 30px !important;
+    height: 30px !important;
+    object-fit: contain !important;
+    max-width: 30px !important;
+    max-height: 30px !important;
+    display: block !important;
 }
 
 .contact-details h4 {

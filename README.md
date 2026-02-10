@@ -1,130 +1,49 @@
-# Juan's Portfolio Website
+# Juan Calderon — Portfolio
 
-A modern, Apple-inspired portfolio website showcasing software engineering and quantitative analysis projects.
+Personal portfolio website for Juan Calderon, a UC Berkeley EECS student. The site highlights work experience, research publications, patents, and software projects spanning full-stack development, AI/ML, and computational research.
 
-## 🚀 Features
+## Tech Stack
 
-- **Apple-inspired Design**: Clean, minimal aesthetic with smooth animations
-- **Responsive Layout**: Works perfectly on desktop, tablet, and mobile devices
-- **Interactive Elements**: Smooth scrolling, hover effects, and form validation
-- **Project Showcase**: Dedicated sections for software engineering projects
-- **Publications Section**: Academic and research work display
-- **Contact Form**: Functional contact form with validation
-- **Modern Animations**: Fade-in effects, parallax scrolling, and smooth transitions
+- **HTML5** — Semantic markup, no framework
+- **CSS3** — Custom styling with CSS Grid, Flexbox, keyframe animations, backdrop blur effects, and responsive breakpoints (768px / 480px)
+- **Vanilla JavaScript (ES6)** — Intersection Observer API for scroll-triggered animations, dynamic navbar, mobile hamburger menu, and a notification system
+- **Google Fonts** — SF Pro Display with system font fallbacks
 
-## 📁 File Structure
+No build tools, bundlers, or npm dependencies. The site is fully static.
+
+## Sections
+
+- **Hero** — Animated gradient text, floating geometric shapes, profile image with parallax scrolling
+- **About** — Bio, interests (algorithms, low-level programming, rock climbing, biking), and interactive tilted image grid
+- **Publications & Research** — Published paper in *Microorganisms* (2023), a pending US patent (US 2024/0415923 A1), and a computational chemistry presentation
+- **Experience** — SDE Intern at AWS (CI/CD with ECS Fargate, RAG agents with Anthropic Claude API), Research Assistant at Emory University and Georgia Tech
+- **Skills** — Java, Python, C/C++, RISC-V, JavaScript, React, Node.js, SQL, Kubernetes, Docker, AWS, LangGraph, LangChain, CI/CD, and more
+- **Projects** — Homely (full-stack marketplace with AI design advisory), Deterministic World Generation (Java game with Prim's algorithm), WordNet Hyponym Graph (BFS/DFS on 800+ years of English), Tower Stacking Game
+- **Contact** — Email, LinkedIn, and GitHub links
+
+## Project Structure
 
 ```
-github_website/
-├── index.html          # Main HTML structure
-├── styles.css          # Apple-inspired CSS styling
-├── script.js           # Interactive JavaScript functionality
-└── README.md           # This file
+├── index.html       # Single-page site
+├── styles.css       # All styling
+├── script.js        # Interactivity and animations
+├── Images/          # Profile photos, logos, thumbnails
+├── DeterministicWorld/  # Screenshots for project showcase
+└── HyponymGraph/        # Screenshots for project showcase
 ```
 
-## 🎨 Customization Guide
+## Run Locally
 
-### Personal Information
-Update the following sections in `index.html`:
+Open `index.html` in a browser, or use a local server:
 
-1. **Navigation & Hero Section**:
-   - Replace "Juan" with your actual name
-   - Update the hero title and subtitle
-   - Modify the gradient text colors in CSS if desired
+```bash
+# Python
+python3 -m http.server
 
-2. **About Section**:
-   - Replace the placeholder text with your actual bio
-   - Update the skills sections with your technologies
-   - Add your actual photo (replace the placeholder)
+# VS Code
+# Install the Live Server extension and click "Go Live"
+```
 
-3. **Projects Section**:
-   - Replace the example projects with your actual work
-   - Update project descriptions, technologies, and links
-   - Add or remove project cards as needed
+## Deploy
 
-4. **Publications Section**:
-   - Replace with your actual publications and research
-   - Update titles, authors, venues, and abstracts
-   - Add links to your papers and presentations
-
-5. **Contact Section**:
-   - Update email, LinkedIn, and GitHub links
-   - Customize the contact form if needed
-
-### Styling Customization
-
-In `styles.css`, you can modify:
-
-- **Color Scheme**: Update the CSS variables for primary colors
-- **Typography**: Change fonts by updating the Google Fonts import
-- **Layout**: Adjust grid layouts and spacing
-- **Animations**: Modify animation durations and effects
-
-### Adding New Sections
-
-To add new sections:
-
-1. Add the HTML structure in `index.html`
-2. Add corresponding CSS styles in `styles.css`
-3. Update the navigation menu
-4. Add any JavaScript functionality in `script.js`
-
-## 🚀 Deployment Options
-
-### GitHub Pages (Recommended)
-1. Push your files to a GitHub repository
-2. Go to repository Settings > Pages
-3. Select source as "Deploy from a branch"
-4. Choose "main" branch and "/ (root)" folder
-5. Your site will be available at `https://yourusername.github.io/repository-name`
-
-### Netlify
-1. Drag and drop your project folder to Netlify
-2. Or connect your GitHub repository for automatic deployments
-
-### Vercel
-1. Import your GitHub repository to Vercel
-2. Deploy with zero configuration
-
-## 🛠️ Development
-
-To run locally:
-1. Open `index.html` in a web browser
-2. Or use a local server like Live Server (VS Code extension)
-
-## 📱 Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-
-## 🎯 Key Features for Job Applications
-
-### Software Engineering Positions
-- Clean, professional design demonstrating attention to detail
-- Responsive layout showing frontend development skills
-- Interactive JavaScript elements
-- Modern CSS techniques and animations
-
-### Quantitative Analysis Positions
-- Publications section highlighting research work
-- Technical projects demonstrating analytical skills
-- Professional presentation of quantitative work
-- Academic and industry-relevant content
-
-## 📝 Notes
-
-- Replace all placeholder content with your actual information
-- Add your real project screenshots and links
-- Update the publication abstracts with your actual research
-- Test the contact form and update the backend if needed
-- Consider adding a favicon for a more professional look
-
-## 🤝 Contributing
-
-Feel free to fork this template and customize it for your own portfolio!
-
----
-
-**Good luck with your job applications!** 🚀
+The site is static HTML/CSS/JS with no build step. Deploy by pushing to GitHub Pages, dropping the folder onto Netlify, or importing the repo into Vercel.

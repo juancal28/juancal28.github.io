@@ -138,13 +138,15 @@ window.addEventListener('scroll', () => {
 
 // Typing effect for hero title
 function typeWriterAnimated(element, staticText, animatedText, speed = 100) {
+    element.style.visibility = 'visible';
     // Set the static text immediately
     element.innerHTML = staticText + '<br>';
-    
+
     let i = 0;
     const animatedSpan = document.createElement('span');
+    animatedSpan.classList.add('gradient-text');
     element.appendChild(animatedSpan);
-    
+
     function type() {
         if (i < animatedText.length) {
             animatedSpan.innerHTML += animatedText.charAt(i);
@@ -152,21 +154,10 @@ function typeWriterAnimated(element, staticText, animatedText, speed = 100) {
             setTimeout(type, speed);
         }
     }
-    
+
     type();
 }
 
-// Initialize typing effect when page loads
-document.addEventListener('DOMContentLoaded', () => {
-    const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle) {
-        const staticText = 'Hi!';
-        const animatedText = 'I\'m Juan Calderon!';
-        setTimeout(() => {
-            typeWriterAnimated(heroTitle, staticText, animatedText, 80);
-        }, 1000);
-    }
-});
 
 // Add hover effects to project cards
 document.addEventListener('DOMContentLoaded', () => {
@@ -186,6 +177,26 @@ document.addEventListener('DOMContentLoaded', () => {
 // Add loading animation
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
+
+    // Start typing effect after body fade-in begins
+    const heroTitle = document.querySelector('.hero-title');
+    if (heroTitle) {
+        setTimeout(() => {
+            typeWriterAnimated(heroTitle, 'Hi!', 'I\'m Juan Calderon!', 80);
+        }, 500);
+    }
+
+    // Animate hero image from small to full size
+    const heroImage = document.querySelector('.hero-image');
+    if (heroImage) {
+        setTimeout(() => {
+            heroImage.style.animation = 'heroImageGrow 0.8s ease-out forwards';
+            heroImage.addEventListener('animationend', () => {
+                heroImage.classList.add('grown');
+                heroImage.style.animation = '';
+            }, { once: true });
+        }, 200);
+    }
 });
 
 // Add CSS for loaded state

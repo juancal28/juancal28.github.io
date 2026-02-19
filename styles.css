@@ -533,14 +533,19 @@ section {
 }
 
 .experience-header {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+        "title title"
+        "company date";
     align-items: center;
-    gap: 1rem;
+    column-gap: 1rem;
+    row-gap: 0.75rem;
     margin-bottom: 1rem;
 }
 
 .experience-title {
+    grid-area: title;
     font-size: 1.2rem;
     font-weight: 600;
     color: #1d1d1f;
@@ -548,22 +553,27 @@ section {
 }
 
 .experience-company {
+    grid-area: company;
     background: #007aff;
     color: white;
     padding: 4px 12px;
     border-radius: 12px;
     font-size: 0.9rem;
     font-weight: 500;
+    min-width: 0;
 }
 
 .experience-date {
+    grid-area: date;
+    justify-self: end;
     background: #e5e5e7;
     color: #1d1d1f;
     padding: 4px 12px;
     border-radius: 12px;
     font-size: 0.9rem;
     font-weight: 500;
-    margin-left: auto;
+    margin-left: 0;
+    white-space: nowrap;
 }
 
 .experience-description {

@@ -288,6 +288,36 @@
             </div>
             <div class="projects-grid">
                 <div class="project-card">
+                    <a href="https://github.com/juancal28/quantAlgoV1" target="_blank" rel="noopener noreferrer">
+                        <div class="project-image">
+                            <img src="Images/QuantAlgoThumbnail.svg" alt="Quant News-RAG Trading System" class="project-image-content">
+                        </div>
+                    </a>
+                    <div class="project-content">
+                        <h3 class="project-title">Quant News-RAG Trading System</h3>
+                        <p class="project-description">
+                            An autonomous quantitative trading system that ingests financial news via RSS feeds, builds a semantic knowledge base
+                            in Qdrant, and scores sentiment using FinBERT. A RAG agent queries recent news to propose citation-backed strategy
+                            adjustments, which are validated against risk limits and backtested on 1+ year of historical data before requiring
+                            human approval. Performance-critical execution and backtesting logic is compiled to native C++ via pybind11.
+                            Paper trades $100K simulated capital with a 2% daily-loss circuit breaker.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">C++ / pybind11</span>
+                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Qdrant</span>
+                            <span class="tech-tag">FinBERT</span>
+                            <span class="tech-tag">Celery</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/juancal28/quantAlgoV1" class="project-link">View Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
                     <div class="project-image">
                         <img src="Images/Homely_Logo.svg" alt="Homely - Home Services Marketplace" class="project-image-content">
                     </div>

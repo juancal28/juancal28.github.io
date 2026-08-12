@@ -58,16 +58,23 @@ Layer order is `tokens, base, layout, components, utilities`.
 - `script.js` handles the mobile menu, scroll reveal, nav state, scrollspy, the
   hero visualisation, and assembling `mailto:` links from the obfuscated
   `data-mail` attributes. Nothing in it is required to read the page.
-- **The hero graphic is a minimum spanning tree** built with Prim's algorithm —
-  the same algorithm as the world generator in the Work section. It draws edge
-  by edge, holds, then rewires with a new point set. It reads its colours from
-  the CSS tokens, so retheming the palette rethemes the graphic too. It is
-  `aria-hidden`, pauses via `IntersectionObserver` when the hero scrolls out of
-  view, renders one static tree under `prefers-reduced-motion`, and draws
-  nothing at all without JS — the hero is designed to look intentional empty
-  in that case, not broken.
-  A CSS `mask-image` fades it out behind the headline; if you change the
-  headline's size or position, adjust that mask on `.hero__viz`.
+- **The hero graphic is a Galton board**, to go with the Gauss quotation.
+  Beads fall through a peg lattice going left or right at each row; the
+  binomial pile-up converges on the normal distribution, and the Gaussian
+  curve plus μ/±σ markers fade in over the histogram once about a third of
+  the beads have landed. Bars are rescaled continuously so the tallest always
+  fills the bin area, which is why the shape settles rather than overflows.
+  Tuning knobs at the top of the block: `ROWS`, `TOTAL`, `SPAWN`, `ROW_MS`,
+  `HOLD`. A full cycle is roughly 13s.
+  It reads its colours from the CSS tokens, so retheming the palette rethemes
+  the graphic. It is `aria-hidden`, pauses via `IntersectionObserver` when the
+  hero scrolls out of view, settles straight to the expected distribution under
+  `prefers-reduced-motion`, and draws nothing at all without JS — in that case
+  the hero is meant to read as intentionally empty, not broken.
+  A CSS `mask-image` fades it out behind the quotation; if you change the
+  quote's size or position, adjust that mask on `.hero__viz`.
+  Note that the board deliberately sits to the right on wide viewports and in
+  an upper band on narrow ones, to stay clear of the quote — see `layout()`.
 - The nav panel transitions `visibility` with a `0s` delay rather than a
   duration — visibility is stepped, not interpolated, and giving it a duration
   leaves the panel stuck hidden.

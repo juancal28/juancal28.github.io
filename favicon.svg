@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="#111110"/>
+  <text x="32" y="33" fill="#f4f2ef"
+        font-family="ui-monospace, SFMono-Regular, Menlo, monospace"
+        font-size="27" font-weight="500" letter-spacing="1"
+        text-anchor="middle" dominant-baseline="central">JC</text>
+</svg>

@@ -1,488 +1,465 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juan Calderon's GitHub </title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Juan Calderon — Software Engineer</title>
+<meta name="description" content="EECS student at UC Berkeley. Software engineering, algorithm design, and low-level systems. Previously SDE intern at AWS; published research at Emory and Georgia Tech.">
+<link rel="canonical" href="https://juancal28.github.io/">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://juancal28.github.io/">
+<meta property="og:title" content="Juan Calderon — Software Engineer">
+<meta property="og:description" content="EECS student at UC Berkeley. Software engineering, algorithm design, and low-level systems.">
+<meta property="og:image" content="https://juancal28.github.io/assets/img/climbing.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Juan Calderon — Software Engineer">
+<meta name="twitter:description" content="EECS student at UC Berkeley. Software engineering, algorithm design, and low-level systems.">
+<meta name="twitter:image" content="https://juancal28.github.io/assets/img/climbing.webp">
+
+<link rel="preload" href="assets/fonts/GeneralSans-Medium.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/JetBrainsMono-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+
+<!-- Reveal animations are opt-in. Without JS this class is never set, so
+     nothing is ever hidden and the whole page renders normally. -->
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <h2>Juan Calderon</h2>
-            </div>
-            <div class="nav-menu">
-                <a href="#about" class="nav-link">About</a>
-                <a href="#publications" class="nav-link">Publications</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </div>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
+
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+  <symbol id="arw" viewBox="0 0 10 10"><path d="M1.4 8.6 8.6 1.4M3.4 1.4h5.2v5.2"/></symbol>
+</svg>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ======================================================== NAV -->
+<header class="nav" id="nav">
+  <div class="nav__inner shell">
+    <a class="nav__mark" href="#top">Juan Calderon</a>
+    <nav class="nav__list" aria-label="Primary">
+      <a class="nav__link" href="#work">Work</a>
+      <a class="nav__link" href="#research">Research</a>
+      <a class="nav__link" href="#experience">Experience</a>
+      <a class="nav__link" href="#about">About</a>
+      <a class="nav__link" href="#contact">Contact</a>
     </nav>
+    <button class="nav__toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navPanel">
+      <span></span><span></span><span></span>
+      <span class="sr-only">Menu</span>
+    </button>
+  </div>
+  <div class="nav__panel" id="navPanel">
+    <a href="#work">Work</a>
+    <a href="#research">Research</a>
+    <a href="#experience">Experience</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-floating-elements">
-                    <div class="element element-1"></div>
-                    <div class="element element-2"></div>
-                    <div class="element element-3"></div>
-                </div>
-                <h1 class="hero-title">
-                    Hi!<br>
-                    <span class="gradient-text">I'm Juan Calderon!</span>
-                </h1>
-                <p class="hero-subtitle">
-			"1% Better Every Day"
-		</p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <img src="Images/DE_Shaw.JPG" alt="Juan Calderon" class="hero-image">
-                <p class="image-caption">I'm on the right!</p>
-            </div>
+<main id="main">
+
+<!-- ======================================================== HERO -->
+<section class="hero shell" id="top">
+  <div class="hero__top">
+    <p class="mono mono--ink">Software Engineer</p>
+    <p class="mono">Berkeley, CA &nbsp;/&nbsp; 2026</p>
+  </div>
+
+  <h1 class="sr-only">Juan Calderon — Software Engineer</h1>
+
+  <div class="hero__stage">
+    <canvas class="hero__viz" aria-hidden="true"></canvas>
+    <figure class="hero__figure">
+      <blockquote class="hero__quote">“It is not knowledge, but the act of learning, not the possession of but the act of getting there, which grants the greatest enjoyment.”</blockquote>
+      <figcaption class="mono hero__cite">Carl Friedrich Gauss</figcaption>
+    </figure>
+  </div>
+
+  <div class="hero__foot">
+    <p class="mono">EECS @ UC Berkeley &nbsp;/&nbsp; Prev. SWE Intern @ AWS</p>
+    <div class="hero__actions">
+      <a class="btn btn--solid" href="#work">Selected work <svg class="arrow"><use href="#arw"/></svg></a>
+      <a class="btn" href="#contact">Get in touch <svg class="arrow"><use href="#arw"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================== INDEX STRIP -->
+<section class="band band--warm">
+  <div class="shell">
+    <div class="strip">
+      <div class="strip__row">
+        <p class="mono">Now</p>
+        <p class="mono strip__val">B.S. Electrical Engineering &amp; Computer Science, UC Berkeley</p>
+      </div>
+      <div class="strip__row">
+        <p class="mono">Prev</p>
+        <p class="mono strip__val">Amazon Web Services &nbsp;·&nbsp; Emory University &nbsp;·&nbsp; Georgia Tech</p>
+      </div>
+      <div class="strip__row">
+        <p class="mono">Focus</p>
+        <p class="mono strip__val">Algorithm design &nbsp;/&nbsp; Low-level programming &nbsp;/&nbsp; Distributed systems</p>
+      </div>
+      <div class="strip__row">
+        <p class="mono">Output</p>
+        <p class="mono strip__val">1 peer-reviewed paper &nbsp;·&nbsp; 1 patent pending &nbsp;·&nbsp; 5 shipped projects</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================== WORK -->
+<section class="band" id="work">
+  <div class="shell">
+    <header class="head reveal">
+      <div class="head__meta">
+        <p class="mono">Section : 01</p>
+        <p class="mono">Five projects</p>
+      </div>
+      <h2 class="head__title">Selected work.</h2>
+      <p class="head__note">Software engineering across quantitative systems, full-stack products, algorithms, and games.</p>
+    </header>
+
+    <div class="rows">
+
+      <article class="row row--work reveal">
+        <p class="mono row__idx">01</p>
+        <div class="row__body">
+          <h3 class="row__title">Quant News-RAG Trading System</h3>
+          <p class="row__text">An autonomous quantitative trading system that ingests financial news via RSS feeds, builds a semantic knowledge base in Qdrant, and scores sentiment using FinBERT. A RAG agent queries recent news to propose citation-backed strategy adjustments, which are validated against risk limits and backtested on 1+ year of historical data before requiring human approval. Performance-critical execution and backtesting logic is compiled to native C++ via pybind11. Paper trades $100K simulated capital with a 2% daily-loss circuit breaker.</p>
+          <ul class="row__tags mono">
+            <li>Python</li><li>C++ / pybind11</li><li>FastAPI</li><li>PostgreSQL</li><li>Qdrant</li><li>FinBERT</li><li>Celery</li>
+          </ul>
+          <div class="row__links">
+            <a class="mlink" href="https://github.com/juancal28/quantAlgoV1" target="_blank" rel="noopener noreferrer">View code <svg class="arrow"><use href="#arw"/></svg></a>
+          </div>
         </div>
-    </section>
+        <a class="row__media" href="https://github.com/juancal28/quantAlgoV1" target="_blank" rel="noopener noreferrer" aria-label="View the Quant News-RAG Trading System on GitHub">
+          <img src="assets/img/quant.svg" alt="Candlestick chart with sentiment and RAG agent indicators" width="800" height="400" loading="lazy" decoding="async">
+        </a>
+      </article>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">About Me</h2>
-                <p class="section-subtitle">Passionate about solving complex problems through code and math</p>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        I'm an Electrical Engineering and Computer Science (EECS) student at the University of California, Berkeley (Go Bears!). Some of my major interests
-                        at the moment include algorithm design and the amazing math behind computer science as well as low-level programming.
-                    </p>
-                    <p>
-                        Outside of the library, you can find me rock climbing or enjoying the beautiful Bay Area weather on my bike (Felt VR40)!
-                    </p>
-                </div>
-                <div class="about-image">
-                    <div class="about-images-grid">
-                        <div class="image-container">
-                            <img src="Images/RockClimbing_Image.JPG" alt="Rock Climbing" class="about-image-item">
-                            <p class="image-caption-tilted">Rock Climbing at Indian Rock, CA</p>
-                        </div>
-                        <div class="image-container">
-                            <img src="Images/biking.JPG" alt="Biking" class="about-image-item">
-                            <p class="image-caption-tilted">Biking through Berkeley</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <article class="row row--work reveal">
+        <p class="mono row__idx">02</p>
+        <div class="row__body">
+          <h3 class="row__title">Homely — Full-Stack Home Services Marketplace</h3>
+          <p class="row__text">A dual-sided marketplace platform connecting homeowners with trade professionals. Features a competitive bidding system, AI-powered design advisory chat using the Anthropic Claude API with real-time streaming, location-based provider matching, real-time messaging, JWT authentication with role-based access control, and a multi-channel notification system. Built as an installable PWA with Capacitor integration for native iOS and Android builds.</p>
+          <ul class="row__tags mono">
+            <li>React 19</li><li>TypeScript</li><li>Node.js</li><li>PostgreSQL</li><li>Anthropic Claude API</li><li>Capacitor</li>
+          </ul>
+          <div class="row__links">
+            <a class="mlink" href="https://github.com/juancal28/Homely" target="_blank" rel="noopener noreferrer">View code <svg class="arrow"><use href="#arw"/></svg></a>
+            <a class="mlink" href="https://homely.casa" target="_blank" rel="noopener noreferrer">Live site <svg class="arrow"><use href="#arw"/></svg></a>
+          </div>
         </div>
-    </section>
-
-    <!-- Publications Section -->
-    <section id="publications" class="publications">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Publications & Research</h2>
-                <p class="section-subtitle">A compilation of my research at Emory University and the Georgia Institute of Technology</p>
-            </div>
-            <div class="publications-list">
-                <div class="publication-item">
-                    <div class="publication-content">
-                        <h3 class="publication-title">
-                            "In Silico Identification and In Vitro Validation of Repurposed Compounds Targeting the RSV Polymerase"
-                        </h3>
-                        <p class="publication-authors">
-                            Eric Xu, Seohyun Park, <strong>Juan Calderon</strong>, Dongdong Cao, Bo Liang
-                        </p>
-                        <p class="publication-venue">
-                            Microorganisms, 2023 • Cited 4 times
-                        </p>
-                        <p class="publication-abstract">
-                            Respiratory Syncytial Virus (RSV) is the top cause of infant hospitalization globally, with no effective treatments available. 
-                            This study used in silico computational analysis including molecular docking and protein-ligand simulation of a database 
-                            containing 6,554 molecules to identify top repurposed compound candidates against the RSV polymerase, including Micafungin, 
-                            Totrombopag, and Verubecestat. We validated Micafungin's inhibition of the RSV RdRP using an in vitro transcription assay, 
-                            showing significant improvements over current inhibitors.
-                        </p>
-                        <div class="publication-links">
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/37375110/" class="publication-link" target="_blank">Read Paper</a>
-                            <a href="https://www.mdpi.com/2076-2607/11/6/1608" class="publication-link" target="_blank">Full Text</a>
-                        </div>
-                    </div>
-                    <div class="publication-badge">
-                        <span class="badge-text">Published</span>
-                    </div>
-                </div>
-
-                <div class="publication-item">
-                    <div class="publication-content">
-                        <h3 class="publication-title">
-                            US Patent US 2024/0415923 A1: "RNA-Dependent RNA Polymerase Inhibitory Compounds, Uses in Managing Viral Infections, and Pharmaceutical Compositions"
-                        </h3>
-                        <p class="publication-authors">
-                            Bo Liang, Dongdong Cao, Eric Xu, <strong>Juan M. Calderon</strong>, Seohyun Park
-                        </p>
-                        <p class="publication-venue">
-                            US Patent Application US20240415923A1, 2024 • Pending
-                        </p>
-                        <p class="publication-abstract">
-                            Patent application covering the pharmaceutical compositions and methods for treating viral infections 
-                            using the compounds identified in our RSV polymerase research, including Micafungin and related 
-                            derivatives. This intellectual property extends our computational drug discovery work into 
-                            commercial applications for treating RSV, COVID-19, and other RNA virus infections.
-                        </p>
-                        <div class="publication-links">
-                            <a href="https://patents.google.com/patent/US20240415923A1/en" class="publication-link" target="_blank">View Patent</a>
-                            <a href="https://ppubs.uspto.gov/api/patents/html/20240415923?source=US-PGPUB&requestToken=eyJzdWIiOiIwODg3NGJkNy02Mjc3LTQ4ZTAtOTlmZi1lNTliNWFlNWE0NTEiLCJ2ZXIiOiJhY2ZlZTc2Zi0yMjVlLTRmMzUtOWI0Yy1hYWViMjcwZTJkMzQiLCJleHAiOjB9" class="publication-link" target="_blank">USPTO</a>
-                        </div>
-                    </div>
-                    <div class="publication-badge">
-                        <span class="badge-text">Patent</span>
-                    </div>
-                </div>
-
-                <div class="publication-item">
-                    <div class="publication-content">
-                        <h3 class="publication-title">
-                            "Rethinking Carbon Dioxide Reduction through Heterogeneous Catalyst Precursor Molecule Development"
-                        </h3>
-                        <p class="publication-authors">
-                            <strong>Juan Calderon</strong>
-                        </p>
-                        <p class="publication-venue">
-                            Georgia Junior Science & Humanities Symposium, 2024
-                        </p>
-                        <p class="publication-abstract">
-                            I developed novel copper-based catalyst precursors for efficient carbon dioxide reduction, addressing challenges in energy efficiency, product selectivity, and scalability. My work focused on synthesizing and characterizing diimine and N-heterocyclic carbene copper complexes, utilizing advanced organometallic techniques (inert atmosphere, NMR spectroscopy, vacuum filtration). These precursors showed promise for selective carbon-carbon bond formation in CO₂ reduction, supporting efforts to convert atmospheric CO₂ into valuable hydrocarbons and advance sustainable energy solutions.
-                        </p>
-                        <div class="publication-links">
-                            <a href="Images/SymposiumSlides.pdf" class="publication-link" target="_blank">View Presentation</a>
-                        </div>
-                    </div>
-                    <div class="publication-badge">
-                        <span class="badge-text">Unpublished</span>
-                    </div>
-                </div>
-
-            </div>
+        <div class="row__media">
+          <img src="assets/img/homely.svg" alt="Homely logo" class="is-contain" width="600" height="375" loading="lazy" decoding="async">
         </div>
-    </section>
+      </article>
 
-    <!-- Experience & Skills Section -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Experience & Skills</h2>
-                <p class="section-subtitle">Technical expertise and professional experience</p>
-            </div>
-            
-            <!-- Work Experience Section -->
-            <div class="work-experience">
-                <h3 class="experience-section-title">Work Experience</h3>
-                <div class="experience-list">
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <h4 class="experience-title">Software Development Engineer Intern</h4>
-                            <span class="experience-company">Amazon Web Services (AWS)</span>
-                            <span class="experience-date">May 2025 - August 2025</span>
-                        </div>
-                        <p class="experience-description">
-                            • Built CI/CD pipelines deploying ECS Fargate services across AWS (S3, Glue, DataZone, Athena).<br>
-                            • Developed, trained, and optimized Retrieval Augmented Generation (RAG) agents and created a front-end for their use to analyze data sets with 100,000+ entries on SMUS<br>
-                            • Coordinated team of 6 interns to develop multi-agent application to automate client workflows, starting from code ideation to full-stack implementation
-                        </p>
-                    </div>
-                    
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <h4 class="experience-title">Research Assistant</h4>
-                            <span class="experience-company">Emory University</span>
-                            <span class="experience-date">June 2022 - August 2024</span>
-                        </div>
-                        <p class="experience-description">
-                            • Integrated novel computational drug-discovery research techniques into formerly in-vitro biochemistry lab <br>
-                            • Published findings in Q2 journal after multiple phases of research, analyzing 6,000+ small molecules <br>
-                            • Utilized Bash and MobaXterm to automate custom scripts and research software on remote Emory supercomputers <br>
-                            • Expanded research with databases of 2,000,000+ small molecules <br>
-                        </p>
-                    </div>
-
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <h4 class="experience-title">Research Assistant</h4>
-                            <span class="experience-company">Georgia Institute of Technology</span>
-                            <span class="experience-date">July 2023 - May 2024</span>
-                        </div>
-                        <p class="experience-description">
-                            • Developed novel procedures for synthesizing fuel precursors from carbon dioxide and other greenhouse gases <br>
-                            • Conducted literature reviews on 40+ articles, analyzing the synthesis of precursor molecules <br>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Skills Section -->
-            <div class="skills-section">
-                <h3 class="experience-section-title">Technical Skills</h3>
-                <div class="skills-grid">
-                <div class="skill-category">
-                    <h4>Programming Languages and Frameworks</h4>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">C++</span>
-                        <span class="skill-tag">C</span></span>
-                        <span class="skill-tag">RISC-V</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">React</span>
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">Bash</span>
-
-
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h4>DevOps</h4>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Kubernetes</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">LangGraph</span>
-                        <span class="skill-tag">LangChain</span>
-                        <span class="skill-tag">MobaXterm</span>
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">CI/CD</span>
-                        <span class="skill-tag">Linux</span>
-                        <span class="skill-tag">Grafana</span>
-                        <span class="skill-tag">AI Agent Development</span>
-                        <span class="skill-tag">Cluster Computing</span>
-                        <span class="skill-tag">Unit Testing</span>
-                    </div>
-                </div>
-                </div>
-            </div>
+      <article class="row row--work reveal">
+        <p class="mono row__idx">03</p>
+        <div class="row__body">
+          <h3 class="row__title">Deterministic World Generation — Java Scroller Game</h3>
+          <p class="row__text">A basic 2D scroller game where the player can enter a seed number to deterministically generate a world. Features such as saving and loading worlds were implemented. My own implementation of Prim's Algorithm was used to generate the world by creating a minimum spanning tree.</p>
+          <ul class="row__tags mono">
+            <li>Java</li><li>Prim's Algorithm</li><li>Algorithm Design</li><li>Object-Oriented Programming</li><li>Version Control</li>
+          </ul>
+          <div class="row__links">
+            <a class="mlink" href="https://github.com/juancal28/DeterministicWorldCreation/tree/main/proj3/src" target="_blank" rel="noopener noreferrer">View code <svg class="arrow"><use href="#arw"/></svg></a>
+          </div>
         </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Featured Projects</h2>
-                <p class="section-subtitle">Showcasing my work in software engineering and quantitative analysis</p>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <a href="https://github.com/juancal28/quantAlgoV1" target="_blank" rel="noopener noreferrer">
-                        <div class="project-image">
-                            <img src="Images/QuantAlgoThumbnail.svg" alt="Quant News-RAG Trading System" class="project-image-content">
-                        </div>
-                    </a>
-                    <div class="project-content">
-                        <h3 class="project-title">Quant News-RAG Trading System</h3>
-                        <p class="project-description">
-                            An autonomous quantitative trading system that ingests financial news via RSS feeds, builds a semantic knowledge base
-                            in Qdrant, and scores sentiment using FinBERT. A RAG agent queries recent news to propose citation-backed strategy
-                            adjustments, which are validated against risk limits and backtested on 1+ year of historical data before requiring
-                            human approval. Performance-critical execution and backtesting logic is compiled to native C++ via pybind11.
-                            Paper trades $100K simulated capital with a 2% daily-loss circuit breaker.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">C++ / pybind11</span>
-                            <span class="tech-tag">FastAPI</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                            <span class="tech-tag">Qdrant</span>
-                            <span class="tech-tag">FinBERT</span>
-                            <span class="tech-tag">Celery</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/juancal28/quantAlgoV1" class="project-link">View Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="Images/Homely_Logo.svg" alt="Homely - Home Services Marketplace" class="project-image-content">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Homely — Full-Stack Home Services Marketplace</h3>
-                        <p class="project-description">
-                            A dual-sided marketplace platform connecting homeowners with trade professionals. Features a competitive bidding system,
-                            AI-powered design advisory chat using the Anthropic Claude API with real-time streaming, location-based provider matching,
-                            real-time messaging, JWT authentication with role-based access control, and a multi-channel notification system.
-                            Built as an installable PWA with Capacitor integration for native iOS and Android builds.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">React 19</span>
-                            <span class="tech-tag">TypeScript</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                            <span class="tech-tag">Anthropic Claude API</span>
-                            <span class="tech-tag">Capacitor</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/juancal28/Homely" class="project-link">View Code</a>
-                            <a href="https://homely.casa" class="project-link" target="_blank" rel="noopener noreferrer">Go To Live Site</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="DeterministicWorld/UI_example0.png" alt="Deterministic World Generation Game" class="project-image-content">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Deterministic World Generation - Java Scroller Game</h3>
-                        <p class="project-description">
-                            A basic 2D scroller game where the player can enter a seed number to deterministically generate a world.
-                            Features such as saving and loading worlds were implemented. My own implementation of Prim's Algorithm was used to 
-                            generate the world by creating a minimum spanning tree.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">Prim's Algorithm</span>
-                            <span class="tech-tag">Algorithm Design</span>
-                            <span class="tech-tag">Object-Oriented Programming</span>
-                            <span class="tech-tag">Version Control</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/juancal28/DeterministicWorldCreation/tree/main/proj3/src" class="project-link">View Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="HyponymGraph/HyponymGraph.png" alt="Hyponym Graph Machine Learning Project" class="project-image-content">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">WordNet</h3>
-                        <p class="project-description">
-                            Created and visualized a hyponym graph of the Wordnet dataset using my own unique implementation of graphs, Breadth-First Search
-                            , and Depth-First Search. The graph covered over 800 years of English language records. I also implemented several JUnit tests
-                            to ensure the correctness of the graph. I utilized several handler functions to break down the complexity of the wordnet's functions.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Graphs</span>
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">JUnit</span>
-                            <span class="tech-tag">Unit Testing</span>
-                            <span class="tech-tag">Graph Algorithms</span>
-                            <span class="tech-tag">Handler Functions</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/juancal28/HyponymGraph" class="project-link">View Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="Images/TowerStackingGameThumbnail.png" alt="Tower Stacking Game" class="project-image-content" onerror="this.style.display='none'">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Tower Stacking Game</h3>
-                        <p class="project-description">
-                            A challenging puzzle game where you rearrange colored blocks on towers to match a target configuration. Similar to the Towers of Hanoi, this game tests your strategic thinking and planning skills. Features include random puzzle generation with 5-12 blocks, move counter and optimal move calculation, reset button to restart the same puzzle, and a new game button for a fresh challenge. Built with a beautiful, modern UI with smooth interactions.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">HTML</span>
-                            <span class="tech-tag">Game Development</span>
-                            <span class="tech-tag">Algorithm Design</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/juancal28/TowerStackingGame" class="project-link">View Code</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="row__media">
+          <img src="assets/img/world-gen.webp" alt="Generated world rendered in the Java scroller game" width="1400" height="710" loading="lazy" decoding="async">
         </div>
-    </section>
+      </article>
 
-    <!-- Awards Section-->
-    <section id="awards" class="awards">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Awards</h2>
-                <p class="section-subtitle">Showcasing my awards and honors</p>
-            </div>
+      <article class="row row--work reveal">
+        <p class="mono row__idx">04</p>
+        <div class="row__body">
+          <h3 class="row__title">WordNet</h3>
+          <p class="row__text">Created and visualized a hyponym graph of the WordNet dataset using my own unique implementation of graphs, Breadth-First Search, and Depth-First Search. The graph covered over 800 years of English language records. I also implemented several JUnit tests to ensure the correctness of the graph. I utilized several handler functions to break down the complexity of the WordNet's functions.</p>
+          <ul class="row__tags mono">
+            <li>Graphs</li><li>Java</li><li>JUnit</li><li>Unit Testing</li><li>Graph Algorithms</li><li>Handler Functions</li>
+          </ul>
+          <div class="row__links">
+            <a class="mlink" href="https://github.com/juancal28/HyponymGraph" target="_blank" rel="noopener noreferrer">View code <svg class="arrow"><use href="#arw"/></svg></a>
+          </div>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Get In Touch</h2>
-                <p class="section-subtitle">Let's discuss any opportunities!</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">📧</div>
-                        <div class="contact-details">
-                            <h4>Email</h4>
-                            <p>jcalde28 [at] berkeley [dot] edu</p>
-                            <p>juancalpe1028 [at] gmail [dot] com</p>
-                        </div>
-                    </div>
-                    <a href="https://www.linkedin.com/in/juanmcalderon/" target="_blank" class="contact-item contact-link">
-                        <div class="contact-icon">
-                            <img src="Images/LinkedInLogo.webp" alt="LinkedIn" class="contact-icon-image">
-                        </div>
-                        <div class="contact-details">
-                            <h4>LinkedIn</h4>
-                            <p>www.linkedin.com/in/juanmcalderon/</p>
-                        </div>
-                    </a>
-                    <a href="https://github.com/juancal28" target="_blank" class="contact-item contact-link">
-                        <div class="contact-icon">
-                            <img src="Images/GitHubLogo.svg" alt="GitHub" class="contact-icon-image">
-                        </div>
-                        <div class="contact-details">
-                            <h4>GitHub</h4>
-                            <p>github.com/juancal28</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
+        <div class="row__media">
+          <img src="assets/img/wordnet.webp" alt="Visualization of the WordNet hyponym graph" width="1400" height="909" loading="lazy" decoding="async">
         </div>
-    </section>
+      </article>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2024 Juan. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="#about">About</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#publications">Publications</a>
-                    <a href="#contact">Contact</a>
-                </div>
-            </div>
+      <article class="row row--work reveal">
+        <p class="mono row__idx">05</p>
+        <div class="row__body">
+          <h3 class="row__title">Tower Stacking Game</h3>
+          <p class="row__text">A challenging puzzle game where you rearrange colored blocks on towers to match a target configuration. Similar to the Towers of Hanoi, this game tests your strategic thinking and planning skills. Features include random puzzle generation with 5–12 blocks, move counter and optimal move calculation, reset button to restart the same puzzle, and a new game button for a fresh challenge.</p>
+          <ul class="row__tags mono">
+            <li>JavaScript</li><li>CSS</li><li>HTML</li><li>Game Development</li><li>Algorithm Design</li>
+          </ul>
+          <div class="row__links">
+            <a class="mlink" href="https://github.com/juancal28/TowerStackingGame" target="_blank" rel="noopener noreferrer">View code <svg class="arrow"><use href="#arw"/></svg></a>
+          </div>
         </div>
-    </footer>
+        <div class="row__media">
+          <img src="assets/img/towers.webp" alt="Tower Stacking Game interface" width="1400" height="1147" loading="lazy" decoding="async">
+        </div>
+      </article>
 
-    <script src="script.js"></script>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================== RESEARCH -->
+<section class="band band--warm" id="research">
+  <div class="shell">
+    <header class="head reveal">
+      <div class="head__meta">
+        <p class="mono">Section : 02</p>
+        <p class="mono">Emory &nbsp;/&nbsp; Georgia Tech</p>
+      </div>
+      <h2 class="head__title">Research &amp; publications.</h2>
+      <p class="head__note">Computational drug discovery and organometallic catalysis, carried out between 2022 and 2024.</p>
+    </header>
+
+    <div class="rows">
+
+      <article class="row row--pub row--media reveal">
+        <p class="mono row__idx">01</p>
+        <div class="pub__meta">
+          <p class="mono mono--ink">Microorganisms</p>
+          <p class="mono">2023 &nbsp;·&nbsp; Cited 4 times</p>
+          <p class="tag">Published</p>
+        </div>
+        <div class="row__body">
+          <h3 class="row__title">“In Silico Identification and In Vitro Validation of Repurposed Compounds Targeting the RSV Polymerase”</h3>
+          <p class="row__text row__authors">Eric Xu, Seohyun Park, <strong>Juan Calderon</strong>, Dongdong Cao, Bo Liang</p>
+          <p class="row__text">Respiratory Syncytial Virus (RSV) is the top cause of infant hospitalization globally, with no effective treatments available. This study used in silico computational analysis including molecular docking and protein-ligand simulation of a database containing 6,554 molecules to identify top repurposed compound candidates against the RSV polymerase, including Micafungin, Totrombopag, and Verubecestat. We validated Micafungin's inhibition of the RSV RdRP using an in vitro transcription assay, showing significant improvements over current inhibitors.</p>
+          <div class="row__links">
+            <a class="mlink" href="https://pubmed.ncbi.nlm.nih.gov/37375110/" target="_blank" rel="noopener noreferrer">PubMed <svg class="arrow"><use href="#arw"/></svg></a>
+            <a class="mlink" href="https://www.mdpi.com/2076-2607/11/6/1608" target="_blank" rel="noopener noreferrer">Full text <svg class="arrow"><use href="#arw"/></svg></a>
+          </div>
+        </div>
+        <!-- Figure 1 from the paper itself, reused under its CC BY licence;
+             the row credits the authors and links to the full text. -->
+        <a class="row__media row__media--doc" href="https://www.mdpi.com/2076-2607/11/6/1608" target="_blank" rel="noopener noreferrer" aria-label="Read the full paper on MDPI">
+          <img src="assets/img/rsv-figure.webp" alt="Figure 1 from the paper: the compound screening and docking workflow" width="1100" height="763" loading="lazy" decoding="async">
+          <span class="mono row__media__cue">Figure 1 &nbsp;·&nbsp; Workflow</span>
+        </a>
+      </article>
+
+      <article class="row row--pub row--media reveal">
+        <p class="mono row__idx">02</p>
+        <div class="pub__meta">
+          <p class="mono mono--ink">US Patent Application</p>
+          <p class="mono">2024 &nbsp;·&nbsp; US20240415923A1</p>
+          <p class="tag">Patent</p>
+        </div>
+        <div class="row__body">
+          <h3 class="row__title">“RNA-Dependent RNA Polymerase Inhibitory Compounds, Uses in Managing Viral Infections, and Pharmaceutical Compositions”</h3>
+          <p class="row__text row__authors">Bo Liang, Dongdong Cao, Eric Xu, <strong>Juan M. Calderon</strong>, Seohyun Park</p>
+          <p class="row__text">Patent application covering the pharmaceutical compositions and methods for treating viral infections using the compounds identified in our RSV polymerase research, including Micafungin and related derivatives. This intellectual property extends our computational drug discovery work into commercial applications for treating RSV, COVID-19, and other RNA virus infections.</p>
+          <div class="row__links">
+            <a class="mlink" href="https://patents.google.com/patent/US20240415923A1/en" target="_blank" rel="noopener noreferrer">Google Patents <svg class="arrow"><use href="#arw"/></svg></a>
+          </div>
+        </div>
+        <a class="row__media row__media--doc" href="https://patents.google.com/patent/US20240415923A1/en" target="_blank" rel="noopener noreferrer" aria-label="View the patent application on Google Patents">
+          <img src="assets/img/patent.webp" alt="First page of US patent application 2024/0415923 A1" width="1000" height="626" loading="lazy" decoding="async">
+          <span class="mono row__media__cue">Patent &nbsp;·&nbsp; 17 pages</span>
+        </a>
+      </article>
+
+      <article class="row row--pub row--media reveal">
+        <p class="mono row__idx">03</p>
+        <div class="pub__meta">
+          <p class="mono mono--ink">Georgia Junior Science &amp; Humanities Symposium</p>
+          <p class="mono">2024</p>
+          <p class="tag">Presented</p>
+        </div>
+        <div class="row__body">
+          <h3 class="row__title">“Rethinking Carbon Dioxide Reduction through Heterogeneous Catalyst Precursor Molecule Development”</h3>
+          <p class="row__text row__authors"><strong>Juan Calderon</strong></p>
+          <p class="row__text">I developed novel copper-based catalyst precursors for efficient carbon dioxide reduction, addressing challenges in energy efficiency, product selectivity, and scalability. My work focused on synthesizing and characterizing diimine and N-heterocyclic carbene copper complexes, utilizing advanced organometallic techniques (inert atmosphere, NMR spectroscopy, vacuum filtration). These precursors showed promise for selective carbon–carbon bond formation in CO₂ reduction, supporting efforts to convert atmospheric CO₂ into valuable hydrocarbons and advance sustainable energy solutions.</p>
+          <div class="row__links">
+            <a class="mlink" href="assets/symposium-slides.pdf" target="_blank" rel="noopener noreferrer">Presentation (PDF) <svg class="arrow"><use href="#arw"/></svg></a>
+          </div>
+        </div>
+        <a class="row__media row__media--doc" href="assets/symposium-slides.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open the symposium presentation PDF">
+          <img src="assets/img/symposium.webp" alt="Title slide of the symposium presentation" width="1200" height="675" loading="lazy" decoding="async">
+          <span class="mono row__media__cue">PDF &nbsp;·&nbsp; 9 slides</span>
+        </a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================== EXPERIENCE -->
+<section class="band" id="experience">
+  <div class="shell">
+    <header class="head reveal">
+      <div class="head__meta">
+        <p class="mono">Section : 03</p>
+        <p class="mono">2022 — 2025</p>
+      </div>
+      <h2 class="head__title">Experience.</h2>
+    </header>
+
+    <div class="rows">
+
+      <article class="row row--exp reveal">
+        <p class="mono">May 2025 — Aug 2025</p>
+        <div>
+          <h3 class="exp__role">Software Development Engineer Intern</h3>
+          <p class="exp__org">Amazon Web Services (AWS)</p>
+          <ul class="exp__list">
+            <li>Built CI/CD pipelines deploying ECS Fargate services across AWS (S3, Glue, DataZone, Athena).</li>
+            <li>Developed, trained, and optimized Retrieval Augmented Generation (RAG) agents and created a front-end for their use to analyze data sets with 100,000+ entries on SMUS.</li>
+            <li>Coordinated team of 6 interns to develop multi-agent application to automate client workflows, starting from code ideation to full-stack implementation.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="row row--exp reveal">
+        <p class="mono">Jun 2022 — Aug 2024</p>
+        <div>
+          <h3 class="exp__role">Research Assistant</h3>
+          <p class="exp__org">Emory University</p>
+          <ul class="exp__list">
+            <li>Integrated novel computational drug-discovery research techniques into formerly in-vitro biochemistry lab.</li>
+            <li>Published findings in Q2 journal after multiple phases of research, analyzing 6,000+ small molecules.</li>
+            <li>Utilized Bash and MobaXterm to automate custom scripts and research software on remote Emory supercomputers.</li>
+            <li>Expanded research with databases of 2,000,000+ small molecules.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="row row--exp reveal">
+        <p class="mono">Jul 2023 — May 2024</p>
+        <div>
+          <h3 class="exp__role">Research Assistant</h3>
+          <p class="exp__org">Georgia Institute of Technology</p>
+          <ul class="exp__list">
+            <li>Developed novel procedures for synthesizing fuel precursors from carbon dioxide and other greenhouse gases.</li>
+            <li>Conducted literature reviews on 40+ articles, analyzing the synthesis of precursor molecules.</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="skills skills--spaced">
+      <div class="skills__group reveal">
+        <p class="mono">Languages &amp; frameworks</p>
+        <ul class="skills__set">
+          <li>Java</li><li>Python</li><li>C++</li><li>C</li><li>RISC-V</li><li>JavaScript</li><li>React</li><li>Node.js</li><li>SQL</li><li>Bash</li>
+        </ul>
+      </div>
+      <div class="skills__group reveal">
+        <p class="mono">Infrastructure &amp; tooling</p>
+        <ul class="skills__set">
+          <li>Kubernetes</li><li>Docker</li><li>AWS</li><li>LangGraph</li><li>LangChain</li><li>MobaXterm</li><li>Git</li><li>CI/CD</li><li>Linux</li><li>Grafana</li><li>AI Agent Development</li><li>Cluster Computing</li><li>Unit Testing</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================== ABOUT -->
+<section class="band band--warm" id="about">
+  <div class="shell">
+    <header class="head reveal">
+      <div class="head__meta">
+        <p class="mono">Section : 04</p>
+        <p class="mono">Berkeley, CA</p>
+      </div>
+      <h2 class="head__title">About.</h2>
+    </header>
+
+    <div class="about__grid reveal">
+      <p class="mono">Background</p>
+      <div class="about__prose">
+        <p>I'm an Electrical Engineering and Computer Science (EECS) student at the University of California, Berkeley (Go Bears!). Some of my major interests at the moment include algorithm design and the amazing math behind computer science as well as low-level programming.</p>
+        <p>Outside of the library, you can find me rock climbing or enjoying the beautiful Bay Area weather on my bike (Felt VR40)!</p>
+      </div>
+    </div>
+
+    <div class="gallery reveal">
+      <div class="shot">
+        <figure>
+          <div class="shot__frame"><img src="assets/img/climbing.webp" alt="Rock climbing at Indian Rock" width="1100" height="825" loading="lazy" decoding="async"></div>
+          <figcaption class="mono">Rock climbing — Indian Rock, CA</figcaption>
+        </figure>
+      </div>
+      <div class="shot">
+        <figure>
+          <div class="shot__frame"><img src="assets/img/biking.webp" alt="Biking through Berkeley" width="1100" height="825" loading="lazy" decoding="async"></div>
+          <figcaption class="mono">Biking through Berkeley</figcaption>
+        </figure>
+      </div>
+      <div class="shot">
+        <figure>
+          <div class="shot__frame"><img src="assets/img/cohort.webp" alt="Juan with colleagues" width="733" height="1100" loading="lazy" decoding="async"></div>
+          <figcaption class="mono">On the right</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================== CONTACT -->
+<section class="band band--void" id="contact">
+  <div class="shell">
+    <p class="mono reveal contact__eyebrow">Section : 05 &nbsp;/&nbsp; Contact</p>
+    <h2 class="contact__title reveal">Let's talk.</h2>
+
+    <div class="contact__rows reveal">
+      <div class="contact__row">
+        <p class="mono">Email</p>
+        <p class="contact__val" data-mail="jcalde28|berkeley.edu">jcalde28 [at] berkeley [dot] edu</p>
+        <span></span>
+      </div>
+      <div class="contact__row">
+        <p class="mono">Email</p>
+        <p class="contact__val" data-mail="juancalpe1028|gmail.com">juancalpe1028 [at] gmail [dot] com</p>
+        <span></span>
+      </div>
+      <a class="contact__row" href="https://www.linkedin.com/in/juanmcalderon/" target="_blank" rel="noopener noreferrer">
+        <p class="mono">LinkedIn</p>
+        <p class="contact__val">linkedin.com/in/juanmcalderon</p>
+        <span class="mono contact__go">Open <svg class="arrow"><use href="#arw"/></svg></span>
+      </a>
+      <a class="contact__row" href="https://github.com/juancal28" target="_blank" rel="noopener noreferrer">
+        <p class="mono">GitHub</p>
+        <p class="contact__val">github.com/juancal28</p>
+        <span class="mono contact__go">Open <svg class="arrow"><use href="#arw"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ======================================================== FOOTER -->
+<footer class="footer">
+  <div class="shell footer__inner">
+    <p class="mono">© 2026 Juan Calderon</p>
+    <nav class="footer__links mono" aria-label="Footer">
+      <a href="#work">Work</a>
+      <a href="#research">Research</a>
+      <a href="#experience">Experience</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>

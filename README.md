@@ -1,49 +1,114 @@
-# Juan Calderon — Portfolio
+# juancal28.github.io
 
-Personal portfolio website for Juan Calderon, a UC Berkeley EECS student. The site highlights work experience, research publications, patents, and software projects spanning full-stack development, AI/ML, and computational research.
+Personal portfolio for Juan Calderon — EECS at UC Berkeley. Live at
+**https://juancal28.github.io**.
 
-## Tech Stack
+Hand-written static site: no framework, no build step, no dependencies.
+Push to `main` and GitHub Pages serves it from the repo root.
 
-- **HTML5** — Semantic markup, no framework
-- **CSS3** — Custom styling with CSS Grid, Flexbox, keyframe animations, backdrop blur effects, and responsive breakpoints (768px / 480px)
-- **Vanilla JavaScript (ES6)** — Intersection Observer API for scroll-triggered animations, dynamic navbar, mobile hamburger menu, and a notification system
-- **Google Fonts** — SF Pro Display with system font fallbacks
-
-No build tools, bundlers, or npm dependencies. The site is fully static.
-
-## Sections
-
-- **Hero** — Animated gradient text, floating geometric shapes, profile image with parallax scrolling
-- **About** — Bio, interests (algorithms, low-level programming, rock climbing, biking), and interactive tilted image grid
-- **Publications & Research** — Published paper in *Microorganisms* (2023), a pending US patent (US 2024/0415923 A1), and a computational chemistry presentation
-- **Experience** — SDE Intern at AWS (CI/CD with ECS Fargate, RAG agents with Anthropic Claude API), Research Assistant at Emory University and Georgia Tech
-- **Skills** — Java, Python, C/C++, RISC-V, JavaScript, React, Node.js, SQL, Kubernetes, Docker, AWS, LangGraph, LangChain, CI/CD, and more
-- **Projects** — Homely (full-stack marketplace with AI design advisory), Deterministic World Generation (Java game with Prim's algorithm), WordNet Hyponym Graph (BFS/DFS on 800+ years of English), Tower Stacking Game
-- **Contact** — Email, LinkedIn, and GitHub links
-
-## Project Structure
-
-```
-├── index.html       # Single-page site
-├── styles.css       # All styling
-├── script.js        # Interactivity and animations
-├── Images/          # Profile photos, logos, thumbnails
-├── DeterministicWorld/  # Screenshots for project showcase
-└── HyponymGraph/        # Screenshots for project showcase
-```
-
-## Run Locally
-
-Open `index.html` in a browser, or use a local server:
+## Local development
 
 ```bash
-# Python
-python3 -m http.server
-
-# VS Code
-# Install the Live Server extension and click "Go Live"
+python3 -m http.server 8000
+# open http://localhost:8000
 ```
 
-## Deploy
+That's the whole toolchain. Edit the three source files and reload.
 
-The site is static HTML/CSS/JS with no build step. Deploy by pushing to GitHub Pages, dropping the folder onto Netlify, or importing the repo into Vercel.
+## Layout
+
+```
+index.html            all markup and all content
+styles.css            the entire stylesheet, organised with @layer
+script.js             progressive enhancement only (~90 lines)
+favicon.svg           "JC" monogram
+assets/fonts/         self-hosted woff2 (General Sans, JetBrains Mono)
+assets/img/           optimised webp + the Homely logo
+assets/symposium-slides.pdf
+```
+
+Content lives directly in `index.html` as semantic HTML rather than in a data
+file rendered by JavaScript. For a static portfolio that recruiters and
+crawlers hit, client-side rendering would cost SEO and break without JS; the
+DRY win isn't worth it for four projects and three publications.
+
+## Design system
+
+Sharp hairline grid, geometric grotesque display type, monospace for every
+label. The visual reference is [maap.cc](https://maap.cc).
+
+- **Type** — General Sans (display, weight 500, tight tracking) + JetBrains
+  Mono. Every eyebrow, meta line, tag and micro-link is mono at 12px; that is
+  the core signal of the whole design.
+- **Colour** — white, warm off-white (`#f4f2ef`), near-black (`#111110`), ink
+  `#1a1a1a`. **No accent hue anywhere.** Emphasis is invert or underline.
+- **No `box-shadow`, no gradients, `border-radius: 0` globally.** Depth comes
+  from 1px rules and background bands only.
+- Tokens live in `@layer tokens` at the top of `styles.css`. Change a value
+  there and it propagates everywhere.
+
+Layer order is `tokens, base, layout, components, utilities`.
+
+## Things worth knowing before editing
+
+- **Content must render without JavaScript.** Reveal animations are opt-in via
+  a `.js` class set by an inline script in `<head>`; the CSS only hides
+  `.reveal` under that class. Never write a rule that hides content
+  unconditionally and relies on JS to show it.
+- `script.js` handles the mobile menu, scroll reveal, nav state, scrollspy, the
+  hero visualisation, and assembling `mailto:` links from the obfuscated
+  `data-mail` attributes. Nothing in it is required to read the page.
+- **The hero graphic is a minimum spanning tree** built with Prim's algorithm —
+  the same algorithm as the world generator in the Work section. It draws edge
+  by edge, holds, then rewires with a new point set. It reads its colours from
+  the CSS tokens, so retheming the palette rethemes the graphic too. It is
+  `aria-hidden`, pauses via `IntersectionObserver` when the hero scrolls out of
+  view, renders one static tree under `prefers-reduced-motion`, and draws
+  nothing at all without JS — the hero is designed to look intentional empty
+  in that case, not broken.
+  A CSS `mask-image` fades it out behind the headline; if you change the
+  headline's size or position, adjust that mask on `.hero__viz`.
+- The nav panel transitions `visibility` with a `0s` delay rather than a
+  duration — visibility is stepped, not interpolated, and giving it a duration
+  leaves the panel stuck hidden.
+- Project thumbnails use `object-fit: contain`. They are UI screenshots and
+  logos, not photography; cropping a white-background screenshot lands on an
+  empty region and the tile looks broken.
+- Breakpoints are `min-width` at 640 / 760 / 900 / 1200. The three-column work
+  and publication rows engage at 900 — below that the text column becomes an
+  unreadable ribbon.
+
+## Adding a project
+
+Copy an existing `<article class="row row--work">` block in the Work section,
+bump the `row__idx` number, and add a webp to `assets/img/`. Optimise it first:
+
+```bash
+sips -Z 1400 source.png --out /tmp/r.png
+cwebp -q 82 -m 6 /tmp/r.png -o assets/img/name.webp
+```
+
+Give every `<img>` explicit `width`/`height` and `loading="lazy"`.
+
+## Publication thumbnails
+
+Each publication row carries a thumbnail in a `.row__media--doc` tile with a
+mono format badge. Add `row--media` to the `<article>` to switch that row into
+the four-column layout; without it the row stays three-column and no gap is left
+behind.
+
+To make a thumbnail from a PDF (Ghostscript + cwebp, both already installed):
+
+```bash
+gs -dNOPAUSE -dBATCH -q -sDEVICE=png16m -r220 -dFirstPage=1 -dLastPage=1 \
+   -dTextAlphaBits=4 -dGraphicsAlphaBits=4 -sOutputFile=/tmp/p1.png doc.pdf
+# portrait pages: crop the top 16:10 band so the tile isn't mostly letterbox
+cwebp -crop 0 0 <width> <width*0.625> -resize 1000 0 -q 82 /tmp/p1.png \
+      -o assets/img/name.webp
+```
+
+Crop with `cwebp -crop` rather than `sips -c` — sips anchors to the centre and
+will cut the header off a document.
+
+Total page weight is ~708 KB including both fonts and all ten images. Keep it
+in that ballpark.

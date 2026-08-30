@@ -49,8 +49,12 @@
     targets.forEach(function (el) { io.observe(el); });
   }
 
-  /* ---- scrollspy: mark the section currently in view --------------------- */
-  var links = Array.prototype.slice.call(document.querySelectorAll('.nav__link'));
+  /* ---- scrollspy: mark the section currently in view ---------------------
+     In-page anchors only. The nav also carries an off-site Dashboard link, and
+     feeding an absolute URL to querySelector below throws a SyntaxError that
+     would take the rest of this file down with it.                          */
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nav__link'))
+    .filter(function (a) { return a.getAttribute('href').charAt(0) === '#'; });
   var sections = links
     .map(function (a) { return document.querySelector(a.getAttribute('href')); })
     .filter(Boolean);

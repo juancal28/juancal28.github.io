@@ -315,6 +315,15 @@
   .nav__link:hover,
   .nav__link.is-active { color: var(--ink); border-bottom-color: var(--ink); }
 
+  /* The one nav item that leaves the site. Same type as its siblings so it
+     doesn't shout; the arrow is what marks it as off-site. */
+  .nav__link--ext {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .nav__link--ext:hover .arrow { transform: translate(2px, -2px); }
+
   .nav__toggle {
     display: grid;
     gap: 5px;
@@ -363,6 +372,14 @@
     text-transform: uppercase;
   }
   .nav__panel a:last-child { border-bottom: 0; }
+  /* flex, not inline-flex: the drawer rows are full-width block rows, and the
+     base `svg { display: block }` reset would otherwise drop the arrow onto a
+     line of its own. */
+  .nav__panel-ext {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
 
   @media (min-width: 900px) {
     .nav__list   { display: flex; }
@@ -695,6 +712,12 @@
   .footer__links { display: flex; gap: 20px; flex-wrap: wrap; }
   .footer__links a { transition: color 200ms var(--ease); }
   .footer__links a:hover { color: var(--ink); }
+  .footer__dash {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .footer__dash:hover .arrow { transform: translate(2px, -2px); }
 }
 
 /* ==========================================================================

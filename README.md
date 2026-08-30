@@ -1,10 +1,19 @@
 # juancal28.github.io
 
 Personal portfolio for Juan Calderon — EECS at UC Berkeley. Live at
-**https://juancal28.github.io**.
+**https://juancalderon.dev**. GitHub redirects `juancal28.github.io` there.
 
 Hand-written static site: no framework, no build step, no dependencies.
 Push to `main` and GitHub Pages serves it from the repo root.
+
+## Domain
+
+The custom domain is bound by the root `CNAME` file — that file *is* the Pages
+setting, so deleting it un-sets the domain and the redirect stops. Apex DNS
+lives at Porkbun: four A records to GitHub's `185.199.10[8-11].153`, four AAAA
+to `2606:50c0:800[0-3]::153`, and `www` as a CNAME to `juancal28.github.io`.
+`dash.juancalderon.dev` is a separate CNAME to Railway and is not served from
+this repo.
 
 ## Local development
 
@@ -18,6 +27,7 @@ That's the whole toolchain. Edit the three source files and reload.
 ## Layout
 
 ```
+CNAME                 binds juancalderon.dev — do not delete
 index.html            all markup and all content
 styles.css            the entire stylesheet, organised with @layer
 script.js             progressive enhancement only (~90 lines)

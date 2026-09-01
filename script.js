@@ -89,9 +89,14 @@
     var SPAWN = 45;       // ms between beads
     var ROW_MS = 58;      // ms to cross one peg row
     var HOLD = 3400;      // ms to hold the finished distribution
+    var SETTLE = 1200;    // reduced motion: ms for every bin to be in
+    var FADE = 300;       // reduced motion: ms one bin takes to fade in
+    var CURVE = 520;      // reduced motion: ms the curve takes to follow
 
     var W = 0, H = 0, b = {}, bins = [], beads = [], released = 0, landed = 0;
     var raf = 0, timer = 0, prev = 0, acc = 0, visible = true;
+    var barFade = null;   // per-bin opacity while the reduced settle runs
+    var settled = false;  // the reduced settle is a one-off, not a cycle
 
     function measure() {
       var r = canvas.getBoundingClientRect();
@@ -124,7 +129,7 @@
     function reset() {
       bins = [];
       for (var i = 0; i <= ROWS; i++) bins.push(0);
-      beads = []; released = 0; landed = 0; acc = 0; prev = 0;
+      beads = []; released = 0; landed = 0; acc = 0; prev = 0; barFade = null;
     }
 
     function spawn() {
@@ -177,6 +182,10 @@
       var bw = b.gapX * 0.78;
       for (k = 0; k <= ROWS; k++) {
         if (!bins[k]) continue;
+        if (barFade) {
+          if (barFade[k] <= 0) continue;
+          ctx.globalAlpha = barFade[k];
+        }
         var bh = bins[k] * u;
         var bx = b.cx + (k - ROWS / 2) * b.gapX - bw / 2;
         ctx.fillStyle = C_RULE;
@@ -184,6 +193,7 @@
         ctx.strokeStyle = C_PEG;
         ctx.strokeRect(Math.round(bx) + 0.5, Math.round(b.binTop + b.binH - bh) + 0.5, Math.round(bw), Math.round(bh));
       }
+      ctx.globalAlpha = 1;
 
       // the Gaussian the pile-up is converging on
       if (showCurve > 0) {
@@ -269,17 +279,38 @@
       raf = requestAnimationFrame(step);
     }
 
+    /* Reduced motion: no beads, nothing travels. The exact binomial is
+       already in `bins`; it fades up in place from the mean outward and the
+       curve follows, so the shape still arrives progressively rather than
+       being there before you look. Opacity only, and it runs once.        */
+    function settle(now) {
+      var e = now - prev, k;
+      for (k = 0; k <= ROWS; k++) {
+        var start = Math.abs(k - ROWS / 2) / (ROWS / 2) * (SETTLE - FADE);
+        barFade[k] = Math.max(0, Math.min(1, (e - start) / FADE));
+      }
+      draw(Math.max(0, Math.min(1, (e - SETTLE) / CURVE)));
+      if (e < SETTLE + CURVE) { raf = requestAnimationFrame(settle); return; }
+      raf = 0; settled = true; barFade = null;
+      draw(1);
+    }
+
     function cycle() {
       if (!visible || !measure()) return;
       layout(); reset();
       canvas.style.opacity = '1';
-      if (reduced) {           // settle straight to the expected distribution
-        var c = 1;
-        for (var k = 0; k <= ROWS; k++) {
+      if (reduced) {           // the expected distribution, not a sampled one
+        var c = 1, k;
+        for (k = 0; k <= ROWS; k++) {
           bins[k] = TOTAL * c / Math.pow(2, ROWS);
           c = c * (ROWS - k) / (k + 1);
         }
-        draw(1);
+        // a resize or a scroll back into view redraws, it does not replay
+        if (settled) { draw(1); return; }
+        barFade = [];
+        for (k = 0; k <= ROWS; k++) barFade.push(0);
+        prev = performance.now();   // same time origin as the rAF timestamp
+        raf = requestAnimationFrame(settle);
         return;
       }
       raf = requestAnimationFrame(step);

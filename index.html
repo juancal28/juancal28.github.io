@@ -76,35 +76,49 @@
     <p class="mono">Berkeley, CA &nbsp;/&nbsp; 2026</p>
   </div>
 
-  <h1 class="sr-only">Juan Calderon — Software Engineer</h1>
-
+  <!-- Three blocks, in reading order: who he is, the board, then the
+       quotation and recent work. Side by side on wide landscape windows,
+       stacked everywhere else. -->
   <div class="hero__stage">
-    <canvas class="hero__viz" aria-hidden="true"></canvas>
-    <!-- Profile links, set large in the open top-left of the stage on
-         landscape desktops. Narrower screens get the compact row in the
-         hero foot instead, because there the board fills this corner. -->
-    <nav class="hero__elsewhere" aria-label="Profiles">
-      <a href="https://github.com/juancal28" target="_blank" rel="noopener noreferrer"><span class="hero__who"><svg class="ico" aria-hidden="true"><use href="#ico-github"/></svg>GitHub</span> <span class="hero__what">Code and commit history</span> <svg class="arrow" aria-hidden="true"><use href="#arw"/></svg></a>
-      <a href="https://www.linkedin.com/in/juanmcalderon/" target="_blank" rel="noopener noreferrer"><span class="hero__who"><svg class="ico" aria-hidden="true"><use href="#ico-linkedin"/></svg>LinkedIn</span> <span class="hero__what">Work history</span> <svg class="arrow" aria-hidden="true"><use href="#arw"/></svg></a>
-      <a href="https://scholar.google.com/citations?user=jnRrpqcAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer"><span class="hero__who"><svg class="ico" aria-hidden="true"><use href="#ico-scholar"/></svg>Google Scholar</span> <span class="hero__what">Publications and citations</span> <svg class="arrow" aria-hidden="true"><use href="#arw"/></svg></a>
-    </nav>
-    <figure class="hero__figure">
-      <blockquote class="hero__quote">“It is not knowledge, but the act of learning, not the possession of but the act of getting there, which grants the greatest enjoyment.”</blockquote>
-      <figcaption class="mono hero__cite">Carl Friedrich Gauss</figcaption>
-    </figure>
+    <div class="hero__col hero__col--id">
+      <div class="hero__intro">
+        <img class="hero__face" src="assets/img/headshot.webp" alt="Juan Calderon" width="460" height="460" decoding="async">
+        <h1 class="hero__name">Juan Calderon</h1>
+        <p class="hero__lead">EECS student at UC Berkeley working on algorithm design, low-level systems, and quantitative trading. Previously a software engineering intern at AWS.</p>
+      </div>
+      <nav class="hero__profiles" aria-label="Profiles">
+        <a href="https://github.com/juancal28" target="_blank" rel="noopener noreferrer"><span class="hero__who"><svg class="ico" aria-hidden="true"><use href="#ico-github"/></svg>GitHub</span> <span class="hero__what">Code and commit history</span> <svg class="arrow arrow--quiet" aria-hidden="true"><use href="#arw"/></svg></a>
+        <a href="https://www.linkedin.com/in/juanmcalderon/" target="_blank" rel="noopener noreferrer"><span class="hero__who"><svg class="ico" aria-hidden="true"><use href="#ico-linkedin"/></svg>LinkedIn</span> <span class="hero__what">Work history</span> <svg class="arrow arrow--quiet" aria-hidden="true"><use href="#arw"/></svg></a>
+        <a href="https://scholar.google.com/citations?user=jnRrpqcAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer"><span class="hero__who"><svg class="ico" aria-hidden="true"><use href="#ico-scholar"/></svg>Google Scholar</span> <span class="hero__what">Papers and citations</span> <svg class="arrow arrow--quiet" aria-hidden="true"><use href="#arw"/></svg></a>
+      </nav>
+    </div>
+
+    <div class="hero__board">
+      <canvas class="hero__viz" aria-hidden="true"></canvas>
+      <!-- Shown by script.js, which also sets its label. Without JS there is
+           no board to control, so it stays hidden. -->
+      <button class="hero__toggle" type="button" data-playing="false" hidden>
+        <svg viewBox="0 0 10 10" aria-hidden="true"><path class="is-play" d="M2 1l7 4-7 4z"/><path class="is-pause" d="M2 1h2.2v8H2zM5.8 1H8v8H5.8z"/></svg>
+        <span class="hero__toggle-label">Play animation</span>
+      </button>
+    </div>
+
+    <div class="hero__col hero__col--side">
+      <figure class="hero__figure">
+        <blockquote class="hero__quote">“It is not knowledge, but the act of learning, not the possession of but the act of getting there, which grants the greatest enjoyment.”</blockquote>
+        <figcaption class="mono hero__cite">Carl Friedrich Gauss</figcaption>
+      </figure>
+      <div class="hero__recent">
+        <p class="mono">Recent work</p>
+        <a href="#work"><span class="hero__recent-title">NBA Totals Bot</span><svg class="arrow arrow--quiet" aria-hidden="true"><use href="#arw"/></svg><span class="hero__recent-desc">Rust bot for NBA totals on Polymarket</span></a>
+        <a href="#work"><span class="hero__recent-title">ScreenInhibitor</span><svg class="arrow arrow--quiet" aria-hidden="true"><use href="#arw"/></svg><span class="hero__recent-desc">iOS app that budgets distracting apps</span></a>
+        <a href="#work"><span class="hero__recent-title">Japanese Conjugation Practice</span><svg class="arrow arrow--quiet" aria-hidden="true"><use href="#arw"/></svg><span class="hero__recent-desc">Conjugation drills from your Anki decks</span></a>
+      </div>
+    </div>
   </div>
 
   <div class="hero__foot">
-    <div class="hero__id">
-      <p class="mono">EECS @ UC Berkeley &nbsp;/&nbsp; Prev. SWE Intern @ AWS</p>
-      <!-- Profile links for phones and portrait tablets, where the large
-           list in the stage is hidden. -->
-      <div class="hero__profiles">
-        <a class="mlink" href="https://github.com/juancal28" target="_blank" rel="noopener noreferrer"><svg class="ico" aria-hidden="true"><use href="#ico-github"/></svg>GitHub <svg class="arrow"><use href="#arw"/></svg></a>
-        <a class="mlink" href="https://www.linkedin.com/in/juanmcalderon/" target="_blank" rel="noopener noreferrer"><svg class="ico" aria-hidden="true"><use href="#ico-linkedin"/></svg>LinkedIn <svg class="arrow"><use href="#arw"/></svg></a>
-        <a class="mlink" href="https://scholar.google.com/citations?user=jnRrpqcAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer"><svg class="ico" aria-hidden="true"><use href="#ico-scholar"/></svg>Google Scholar <svg class="arrow"><use href="#arw"/></svg></a>
-      </div>
-    </div>
+    <p class="mono">EECS @ UC Berkeley &nbsp;/&nbsp; Prev. SWE Intern @ AWS</p>
     <div class="hero__actions">
       <a class="btn btn--solid" href="#work">Selected work <svg class="arrow"><use href="#arw"/></svg></a>
       <a class="btn" href="#contact">Get in touch <svg class="arrow"><use href="#arw"/></svg></a>

@@ -1,2 +1,4 @@
 .DS_Store
 *.log
+# Superdesign working files; this repo is served publicly by GitHub Pages
+.superdesign/

@@ -68,13 +68,28 @@ Layer order is `tokens, base, layout, components, utilities`.
   `HOLD`. A full cycle is roughly 13s.
   It reads its colours from the CSS tokens, so retheming the palette rethemes
   the graphic. It is `aria-hidden`, pauses via `IntersectionObserver` when the
-  hero scrolls out of view, settles straight to the expected distribution under
-  `prefers-reduced-motion`, and draws nothing at all without JS — in that case
-  the hero is meant to read as intentionally empty, not broken.
-  A CSS `mask-image` fades it out behind the quotation; if you change the
-  quote's size or position, adjust that mask on `.hero__viz`.
-  Note that the board deliberately sits to the right on wide viewports and in
-  an upper band on narrow ones, to stay clear of the quote — see `layout()`.
+  hero scrolls out of view, and draws nothing at all without JS — in that case
+  its box is simply empty and the rest of the hero reads on its own.
+  A "Play animation" / "Pause animation" button sits centred under the board
+  (`.hero__toggle`), solid while paused and a quiet outline while playing. Visitors with `prefers-reduced-motion` start paused, on a
+  still chart of the expected distribution that fades in once; everyone else
+  starts playing. Pausing freezes the frame on screen. The choice is saved in
+  `localStorage` under `board-motion` and wins over the motion preference on
+  later visits. Windows reports reduced motion whenever "Animation effects"
+  is off, so a still board on a Windows machine is usually this, not a bug.
+  The board fills its canvas (`layout()`); where the canvas sits is the
+  stylesheet's job, via `.hero__board`.
+- **The hero has two layouts.** On landscape windows at least 1100px wide it
+  is three columns (30% / 44% / 26%): headshot, name, intro and profile links;
+  the board; the quotation and recent work. There the hero's `font-size`
+  scales with `min(1.11vw, 1.95vh)` and everything in the stage is sized in
+  `em`, so a larger window gets a larger first screen rather than more empty
+  space. It is drawn at 16px for 1440×820, so check that size, 1280×720 and a
+  very wide window after changing any content in it. Everything narrower
+  stacks the same three blocks at the normal 16px.
+- The headshot (`assets/img/headshot.webp`) is the GitHub profile picture.
+- The three "Recent work" rows in the hero are hand-picked copies of the
+  newest projects; update them when the Work section's order changes.
 - The nav panel transitions `visibility` with a `0s` delay rather than a
   duration — visibility is stepped, not interpolated, and giving it a duration
   leaves the panel stuck hidden.

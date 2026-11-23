@@ -98,7 +98,20 @@
     var W = 0, H = 0, b = {}, bins = [], beads = [], released = 0, landed = 0;
     var raf = 0, timer = 0, prev = 0, acc = 0, visible = true;
     var barFade = null;   // per-bin opacity while the reduced settle runs
-    var settled = false;  // the reduced settle is a one-off, not a cycle
+    var settled = false;  // the still version fades in once, not on every redraw
+
+    // Whether the beads fall. Off to start with for visitors who asked for
+    // reduced motion, on for everyone else; the button under the board flips
+    // it, and the choice is remembered for the next visit.
+    var KEY = 'board-motion';
+    var toggle = document.querySelector('.hero__toggle');
+    var playing = !reduced;
+    var frozen = false;   // paused part-way through a run: that frame is kept
+    try {
+      var saved = window.localStorage.getItem(KEY);
+      if (saved === 'play') playing = true;
+      else if (saved === 'pause') playing = false;
+    } catch (e) { /* storage blocked: fall back to the motion preference */ }
 
     function measure() {
       var r = canvas.getBoundingClientRect();
@@ -111,13 +124,11 @@
       return true;
     }
 
-    // keep the board clear of the quotation: right-hand side on wide screens,
-    // upper band on narrow ones
+    // the board fills its canvas; the stylesheet decides where that canvas
+    // sits (the middle column on wide windows, its own block otherwise). The
+    // margin at the bottom leaves room for the mu and sigma labels.
     function layout() {
-      var wide = W / H > 1.35;
-      var x, y, w, h;
-      if (wide) { w = W * 0.50; h = H * 0.94; x = W - w; y = H * 0.03; }
-      else      { w = W * 0.96; h = H * 0.56; x = W * 0.02; y = 0; }
+      var w = W * 0.96, h = H * 0.90, x = W * 0.02, y = H * 0.02;
       b = { x: x, y: y, w: w, h: h };
       b.cx = x + w / 2;
       b.gapX = w / (ROWS + 3);
@@ -126,6 +137,11 @@
       b.binTop = y + b.pegH + h * 0.07;
       b.binH = h - b.pegH - h * 0.07;
       b.unitMax = b.binH * 0.92;
+      // pegs, beads and labels grow with the board, so a large board on a
+      // wide window does not end up drawn with hairline-sized dots
+      b.peg = Math.max(1.15, Math.min(3, b.gapX * 0.03));
+      b.bead = Math.max(2, Math.min(5, b.gapX * 0.052));
+      b.label = Math.max(10, Math.min(16, b.gapX * 0.16));
     }
 
     function reset() {
@@ -169,7 +185,7 @@
         for (i = 0; i <= r; i++) {
           px = b.cx + (i - r / 2) * b.gapX;
           py = b.y + (r + 1) * b.gapY;
-          ctx.beginPath(); ctx.arc(px, py, 1.15, 0, 6.2832); ctx.fill();
+          ctx.beginPath(); ctx.arc(px, py, b.peg, 0, 6.2832); ctx.fill();
         }
       }
 
@@ -217,7 +233,7 @@
 
         // mu and sigma markers
         ctx.fillStyle = C_LABEL;
-        ctx.font = '400 10px "JetBrains Mono", ui-monospace, monospace';
+        ctx.font = '400 ' + b.label.toFixed(1) + 'px "JetBrains Mono", ui-monospace, monospace';
         ctx.textAlign = 'center';
         ctx.globalAlpha = showCurve;
         var marks = [[0, 'μ'], [-sd, '−σ'], [sd, '+σ']];
@@ -226,9 +242,9 @@
           ctx.strokeStyle = C_PEG;
           ctx.beginPath();
           ctx.moveTo(mx, b.binTop + b.binH + 1);
-          ctx.lineTo(mx, b.binTop + b.binH + 6);
+          ctx.lineTo(mx, b.binTop + b.binH + b.label * 0.6);
           ctx.stroke();
-          ctx.fillText(marks[i][1], mx, b.binTop + b.binH + 19);
+          ctx.fillText(marks[i][1], mx, b.binTop + b.binH + b.label * 1.9);
         }
         ctx.globalAlpha = 1;
       }
@@ -237,7 +253,7 @@
       ctx.fillStyle = C_BEAD;
       for (i = 0; i < beads.length; i++) {
         var p2 = beadXY(beads[i]);
-        ctx.beginPath(); ctx.arc(p2.x, p2.y, 2, 0, 6.2832); ctx.fill();
+        ctx.beginPath(); ctx.arc(p2.x, p2.y, b.bead, 0, 6.2832); ctx.fill();
       }
     }
 
@@ -258,7 +274,7 @@
           o.t += dt / ROW_MS;
           if (o.t >= ROWS) { o.t = ROWS; o.drop = b.y + ROWS * b.gapY; }
         } else {
-          var rest = b.binTop + b.binH - bins[o.bin] * u - 2;
+          var rest = b.binTop + b.binH - bins[o.bin] * u - b.bead;
           o.drop += dt * 0.9;
           if (o.drop >= rest) { bins[o.bin]++; landed++; beads.splice(i, 1); }
         }
@@ -281,7 +297,7 @@
       raf = requestAnimationFrame(step);
     }
 
-    /* Reduced motion: no beads, nothing travels. The exact binomial is
+    /* The still version: no beads, nothing travels. The exact binomial is
        already in `bins`; it fades up in place from the mean outward and the
        curve follows, so the shape still arrives progressively rather than
        being there before you look. Opacity only, and it runs once.        */
@@ -299,9 +315,9 @@
 
     function cycle() {
       if (!visible || !measure()) return;
-      layout(); reset();
+      layout(); reset(); frozen = false;
       canvas.style.opacity = '1';
-      if (reduced) {           // the expected distribution, not a sampled one
+      if (!playing) {          // the expected distribution, not a sampled one
         var c = 1, k;
         for (k = 0; k <= ROWS; k++) {
           bins[k] = TOTAL * c / Math.pow(2, ROWS);
@@ -321,6 +337,39 @@
     function halt() {
       if (raf) { cancelAnimationFrame(raf); raf = 0; }
       if (timer) { clearTimeout(timer); timer = 0; }
+    }
+
+    /* Play / pause. Pausing keeps the frame that is on screen; playing again
+       carries on from it, or starts a fresh run if there is nothing to carry
+       on from (the still version, or a run that had already finished).      */
+    if (toggle) {
+      var text = toggle.querySelector('.hero__toggle-label');
+      var label = function () {
+        // the attribute drives the icon and how prominent the button is
+        toggle.setAttribute('data-playing', String(playing));
+        text.textContent = playing ? 'Pause animation' : 'Play animation';
+      };
+      toggle.hidden = false;
+      label();
+      toggle.addEventListener('click', function () {
+        playing = !playing;
+        try { window.localStorage.setItem(KEY, playing ? 'play' : 'pause'); } catch (e) { /* not remembered */ }
+        label();
+        if (playing) {
+          if (frozen && landed < TOTAL) {
+            frozen = false;
+            prev = 0;               // so the pause is not counted as elapsed time
+            raf = requestAnimationFrame(step);
+          } else {
+            halt();
+            cycle();
+          }
+        } else {
+          frozen = raf !== 0 || timer !== 0;
+          halt();
+          canvas.style.opacity = '1';   // in case the pause landed mid-fade
+        }
+      });
     }
 
     if ('IntersectionObserver' in window) {

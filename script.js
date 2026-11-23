@@ -50,7 +50,9 @@
   }
 
   /* ---- scrollspy: mark the section currently in view --------------------- */
-  var links = Array.prototype.slice.call(document.querySelectorAll('.nav__link'));
+  /* in-page links only: the off-site ones have no section to spy on, and a
+     full URL is not a valid selector for querySelector below */
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nav__link[href^="#"]'));
   var sections = links
     .map(function (a) { return document.querySelector(a.getAttribute('href')); })
     .filter(Boolean);

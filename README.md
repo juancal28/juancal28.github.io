@@ -23,14 +23,14 @@ styles.css            the entire stylesheet, organised with @layer
 script.js             progressive enhancement only (~90 lines)
 favicon.svg           "JC" monogram
 assets/fonts/         self-hosted woff2 (General Sans, JetBrains Mono)
-assets/img/           optimised webp + the Homely logo
+assets/img/           optimised webp, plus hand-drawn svg diagrams and the Homely logo
 assets/symposium-slides.pdf
 ```
 
 Content lives directly in `index.html` as semantic HTML rather than in a data
 file rendered by JavaScript. For a static portfolio that recruiters and
 crawlers hit, client-side rendering would cost SEO and break without JS; the
-DRY win isn't worth it for four projects and three publications.
+DRY win isn't worth it for eight projects and four research entries.
 
 ## Design system
 

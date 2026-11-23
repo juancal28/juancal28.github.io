@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="40 76 720 360" width="720" height="360" fill="none">
+  <!-- Illustrative only: first-quarter scoring per minute, the fitted rate,
+       the two-minute Q2 check, and the projected total against the line.
+       Type is set large because the tile shows this at about half size. -->
+  <g font-family="'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="17" letter-spacing="1" fill="#6b6b6b">
+    <text x="62" y="112" fill="#1a1a1a">POINTS PER MINUTE</text>
+    <text x="250" y="410" text-anchor="middle">Q1 · 12 MIN</text>
+    <text x="474" y="410" text-anchor="middle">Q2</text>
+    <text x="508" y="238" text-anchor="end" fill="#1a1a1a">λ = 4.92</text>
+
+    <text x="556" y="112" fill="#1a1a1a">PROJECTED TOTAL</text>
+    <text x="616" y="192">95% CI</text>
+    <text x="616" y="250" fill="#1a1a1a">MODEL 228.9</text>
+    <text x="750" y="304" text-anchor="end">LINE 224.5</text>
+    <text x="556" y="410">P(OVER) 0.58</text>
+  </g>
+
+  <!-- Q1 histogram -->
+  <g fill="#dcd8d2" stroke="#c3bdb4">
+    <rect x="70.5"  y="250.5" width="22" height="129"/>
+    <rect x="100.5" y="302.5" width="22" height="77"/>
+    <rect x="130.5" y="198.5" width="22" height="181"/>
+    <rect x="160.5" y="276.5" width="22" height="103"/>
+    <rect x="190.5" y="224.5" width="22" height="155"/>
+    <rect x="220.5" y="250.5" width="22" height="129"/>
+    <rect x="250.5" y="328.5" width="22" height="51"/>
+    <rect x="280.5" y="172.5" width="22" height="207"/>
+    <rect x="310.5" y="276.5" width="22" height="103"/>
+    <rect x="340.5" y="250.5" width="22" height="129"/>
+    <rect x="370.5" y="224.5" width="22" height="155"/>
+    <rect x="400.5" y="276.5" width="22" height="103"/>
+  </g>
+
+  <!-- Q2 validation sample -->
+  <g stroke="#1a1a1a" stroke-width="1.5" stroke-dasharray="5 4">
+    <rect x="448.5" y="250.5" width="22" height="129"/>
+    <rect x="478.5" y="276.5" width="22" height="103"/>
+  </g>
+
+  <!-- fitted Poisson rate -->
+  <line x1="62" y1="252" x2="508" y2="252" stroke="#1a1a1a" stroke-width="2"/>
+  <line x1="62" y1="380.5" x2="508" y2="380.5" stroke="#c3bdb4"/>
+
+  <!-- divider -->
+  <line x1="532.5" y1="96" x2="532.5" y2="416" stroke="#dcd8d2"/>
+
+  <!-- projection with its bootstrap interval, against the market line -->
+  <g stroke="#1a1a1a" stroke-width="2">
+    <line x1="586" y1="181" x2="586" y2="334"/>
+    <line x1="574" y1="181" x2="598" y2="181"/>
+    <line x1="574" y1="334" x2="598" y2="334"/>
+  </g>
+  <rect x="579" y="251" width="14" height="14" fill="#1a1a1a"/>
+  <line x1="556" y1="280.5" x2="750" y2="280.5" stroke="#1a1a1a" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <line x1="556" y1="380.5" x2="750" y2="380.5" stroke="#c3bdb4"/>
+</svg>

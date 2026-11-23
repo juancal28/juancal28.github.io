@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="130 40 540 420" width="540" height="420" fill="none">
+  <!-- Illustrative only: one quiz card. The word comes from an imported deck,
+       the form is drawn at random, and the answer is typed in kana.
+       Type is set large because the tile shows this at about half size. -->
+  <rect x="150.5" y="56.5" width="500" height="388" fill="#ffffff" stroke="#c3bdb4"/>
+
+  <g font-family="'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="16" letter-spacing="1" fill="#6b6b6b">
+    <text x="172" y="88">DECK · LESSON 3</text>
+    <text x="628" y="88" text-anchor="end">7 / 29</text>
+    <text x="400" y="140" text-anchor="middle" fill="#1a1a1a">PAST · NEGATIVE · POLITE</text>
+    <text x="400" y="418" text-anchor="middle">CORRECT</text>
+  </g>
+
+  <line x1="150" y1="104.5" x2="650" y2="104.5" stroke="#dcd8d2"/>
+
+  <g font-family="'Hiragino Sans', 'Yu Gothic', 'Noto Sans JP', Meiryo, sans-serif" fill="#1a1a1a" text-anchor="middle">
+    <text x="316" y="186" font-size="22" fill="#6b6b6b">た</text>
+    <text x="400" y="264" font-size="84">食べる</text>
+    <text x="400" y="353" font-size="28">たべませんでした</text>
+  </g>
+  <text x="400" y="298" text-anchor="middle" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="19" fill="#6b6b6b">to eat</text>
+
+  <rect x="220.5" y="316.5" width="360" height="56" stroke="#1a1a1a" stroke-width="1.5"/>
+</svg>

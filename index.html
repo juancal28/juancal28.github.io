@@ -31,6 +31,10 @@
 
 <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
   <symbol id="arw" viewBox="0 0 10 10"><path d="M1.4 8.6 8.6 1.4M3.4 1.4h5.2v5.2"/></symbol>
+  <!-- profile marks, drawn in the text colour rather than brand colours -->
+  <symbol id="ico-github" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></symbol>
+  <symbol id="ico-linkedin" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+  <symbol id="ico-scholar" viewBox="0 0 24 24"><path d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></symbol>
 </svg>
 
 <a class="skip-link" href="#main">Skip to content</a>
@@ -40,9 +44,9 @@
   <div class="nav__inner shell">
     <a class="nav__mark" href="#top">Juan Calderon</a>
     <nav class="nav__list" aria-label="Primary">
+      <a class="nav__link" href="#experience">Experience</a>
       <a class="nav__link" href="#work">Work</a>
       <a class="nav__link" href="#research">Research</a>
-      <a class="nav__link" href="#experience">Experience</a>
       <a class="nav__link" href="#about">About</a>
       <a class="nav__link" href="#contact">Contact</a>
     </nav>
@@ -52,11 +56,14 @@
     </button>
   </div>
   <div class="nav__panel" id="navPanel">
+    <a href="#experience">Experience</a>
     <a href="#work">Work</a>
     <a href="#research">Research</a>
-    <a href="#experience">Experience</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
+    <a class="nav__panel-ext" href="https://github.com/juancal28" target="_blank" rel="noopener noreferrer">GitHub <svg class="arrow"><use href="#arw"/></svg></a>
+    <a class="nav__panel-ext" href="https://www.linkedin.com/in/juanmcalderon/" target="_blank" rel="noopener noreferrer">LinkedIn <svg class="arrow"><use href="#arw"/></svg></a>
+    <a class="nav__panel-ext" href="https://scholar.google.com/citations?user=jnRrpqcAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar <svg class="arrow"><use href="#arw"/></svg></a>
   </div>
 </header>
 
@@ -73,6 +80,14 @@
 
   <div class="hero__stage">
     <canvas class="hero__viz" aria-hidden="true"></canvas>
+    <!-- Profile links, set large in the open top-left of the stage on
+         landscape desktops. Narrower screens get the compact row in the
+         hero foot instead, because there the board fills this corner. -->
+    <nav class="hero__elsewhere" aria-label="Profiles">
+      <a href="https://github.com/juancal28" target="_blank" rel="noopener noreferrer"><span class="hero__who"><svg class="ico" aria-hidden="true"><use href="#ico-github"/></svg>GitHub</span> <span class="hero__what">Code and commit history</span> <svg class="arrow" aria-hidden="true"><use href="#arw"/></svg></a>
+      <a href="https://www.linkedin.com/in/juanmcalderon/" target="_blank" rel="noopener noreferrer"><span class="hero__who"><svg class="ico" aria-hidden="true"><use href="#ico-linkedin"/></svg>LinkedIn</span> <span class="hero__what">Work history</span> <svg class="arrow" aria-hidden="true"><use href="#arw"/></svg></a>
+      <a href="https://scholar.google.com/citations?user=jnRrpqcAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer"><span class="hero__who"><svg class="ico" aria-hidden="true"><use href="#ico-scholar"/></svg>Google Scholar</span> <span class="hero__what">Publications and citations</span> <svg class="arrow" aria-hidden="true"><use href="#arw"/></svg></a>
+    </nav>
     <figure class="hero__figure">
       <blockquote class="hero__quote">“It is not knowledge, but the act of learning, not the possession of but the act of getting there, which grants the greatest enjoyment.”</blockquote>
       <figcaption class="mono hero__cite">Carl Friedrich Gauss</figcaption>
@@ -80,7 +95,16 @@
   </div>
 
   <div class="hero__foot">
-    <p class="mono">EECS @ UC Berkeley &nbsp;/&nbsp; Prev. SWE Intern @ AWS</p>
+    <div class="hero__id">
+      <p class="mono">EECS @ UC Berkeley &nbsp;/&nbsp; Prev. SWE Intern @ AWS</p>
+      <!-- Profile links for phones and portrait tablets, where the large
+           list in the stage is hidden. -->
+      <div class="hero__profiles">
+        <a class="mlink" href="https://github.com/juancal28" target="_blank" rel="noopener noreferrer"><svg class="ico" aria-hidden="true"><use href="#ico-github"/></svg>GitHub <svg class="arrow"><use href="#arw"/></svg></a>
+        <a class="mlink" href="https://www.linkedin.com/in/juanmcalderon/" target="_blank" rel="noopener noreferrer"><svg class="ico" aria-hidden="true"><use href="#ico-linkedin"/></svg>LinkedIn <svg class="arrow"><use href="#arw"/></svg></a>
+        <a class="mlink" href="https://scholar.google.com/citations?user=jnRrpqcAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer"><svg class="ico" aria-hidden="true"><use href="#ico-scholar"/></svg>Google Scholar <svg class="arrow"><use href="#arw"/></svg></a>
+      </div>
+    </div>
     <div class="hero__actions">
       <a class="btn btn--solid" href="#work">Selected work <svg class="arrow"><use href="#arw"/></svg></a>
       <a class="btn" href="#contact">Get in touch <svg class="arrow"><use href="#arw"/></svg></a>
@@ -106,22 +130,93 @@
       </div>
       <div class="strip__row">
         <p class="mono">Output</p>
-        <p class="mono strip__val">1 peer-reviewed paper &nbsp;·&nbsp; 1 patent pending &nbsp;·&nbsp; 5 shipped projects</p>
+        <p class="mono strip__val">1 peer-reviewed paper &nbsp;·&nbsp; 1 patent pending &nbsp;·&nbsp; 8 shipped projects</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================== EXPERIENCE -->
+<section class="band" id="experience">
+  <div class="shell">
+    <header class="head reveal">
+      <div class="head__meta">
+        <p class="mono">Section : 01</p>
+        <p class="mono">2022 — 2025</p>
+      </div>
+      <h2 class="head__title">Experience.</h2>
+    </header>
+
+    <div class="rows">
+
+      <article class="row row--exp reveal">
+        <p class="mono">May 2025 — Aug 2025</p>
+        <div>
+          <h3 class="exp__role">Software Development Engineer Intern</h3>
+          <p class="exp__org">Amazon Web Services (AWS)</p>
+          <ul class="exp__list">
+            <li>Built CI/CD pipelines deploying ECS Fargate services across AWS (S3, Glue, DataZone, Athena).</li>
+            <li>Developed, trained, and optimized Retrieval Augmented Generation (RAG) agents and created a front-end for their use to analyze data sets with 100,000+ entries on SMUS.</li>
+            <li>Coordinated team of 6 interns to develop multi-agent application to automate client workflows, starting from code ideation to full-stack implementation.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="row row--exp reveal">
+        <p class="mono">Jun 2022 — Aug 2024</p>
+        <div>
+          <h3 class="exp__role">Research Assistant</h3>
+          <p class="exp__org">Emory University</p>
+          <ul class="exp__list">
+            <li>Integrated novel computational drug-discovery research techniques into formerly in-vitro biochemistry lab.</li>
+            <li>Published findings in Q2 journal after multiple phases of research, analyzing 6,000+ small molecules.</li>
+            <li>Utilized Bash and MobaXterm to automate custom scripts and research software on remote Emory supercomputers.</li>
+            <li>Expanded research with databases of 2,000,000+ small molecules.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="row row--exp reveal">
+        <p class="mono">Jul 2023 — May 2024</p>
+        <div>
+          <h3 class="exp__role">Research Assistant</h3>
+          <p class="exp__org">Georgia Institute of Technology</p>
+          <ul class="exp__list">
+            <li>Developed novel procedures for synthesizing fuel precursors from carbon dioxide and other greenhouse gases.</li>
+            <li>Conducted literature reviews on 40+ articles, analyzing the synthesis of precursor molecules.</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="skills skills--spaced">
+      <div class="skills__group reveal">
+        <p class="mono">Languages &amp; frameworks</p>
+        <ul class="skills__set">
+          <li>Java</li><li>Python</li><li>C++</li><li>C</li><li>RISC-V</li><li>JavaScript</li><li>React</li><li>Node.js</li><li>SQL</li><li>Bash</li>
+        </ul>
+      </div>
+      <div class="skills__group reveal">
+        <p class="mono">Infrastructure &amp; tooling</p>
+        <ul class="skills__set">
+          <li>Kubernetes</li><li>Docker</li><li>AWS</li><li>LangGraph</li><li>LangChain</li><li>MobaXterm</li><li>Git</li><li>CI/CD</li><li>Linux</li><li>Grafana</li><li>AI Agent Development</li><li>Cluster Computing</li><li>Unit Testing</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ======================================================== WORK -->
-<section class="band" id="work">
+<section class="band band--warm" id="work">
   <div class="shell">
     <header class="head reveal">
       <div class="head__meta">
-        <p class="mono">Section : 01</p>
-        <p class="mono">Five projects</p>
+        <p class="mono">Section : 02</p>
+        <p class="mono">Eight projects</p>
       </div>
       <h2 class="head__title">Selected work.</h2>
-      <p class="head__note">Software engineering across quantitative systems, full-stack products, algorithms, and games.</p>
+      <p class="head__note">Software engineering across quantitative trading systems, iOS, full-stack products, algorithms, and games. Newest first.</p>
     </header>
 
     <div class="rows">
@@ -129,10 +224,59 @@
       <article class="row row--work reveal">
         <p class="mono row__idx">01</p>
         <div class="row__body">
-          <h3 class="row__title">Quant News-RAG Trading System</h3>
-          <p class="row__text">An autonomous quantitative trading system that ingests financial news via RSS feeds, builds a semantic knowledge base in Qdrant, and scores sentiment using FinBERT. A RAG agent queries recent news to propose citation-backed strategy adjustments, which are validated against risk limits and backtested on 1+ year of historical data before requiring human approval. Performance-critical execution and backtesting logic is compiled to native C++ via pybind11. Paper trades $100K simulated capital with a 2% daily-loss circuit breaker.</p>
+          <h3 class="row__title">NBA Totals Bot — Polymarket Trading in Rust</h3>
+          <p class="row__text">A Rust bot that trades NBA game-total over/under markets on Polymarket. It follows the first quarter through SportRadar, fits a Poisson rate to per-minute scoring, and uses a likelihood-ratio test against the opening minutes of the second quarter to decide whether that rate can be trusted. A bootstrap gives a confidence interval for the final total, and the pace projection is blended with the market line using a least-squares fit over 638 backtested games. When the edge clears its threshold, the order is sized with depth-aware fractional Kelly and submitted fill-or-kill to the order book. A backtester and a paper-trading mode drive the same engine and record the blended and pace-only models side by side.</p>
           <ul class="row__tags mono">
-            <li>Python</li><li>C++ / pybind11</li><li>FastAPI</li><li>PostgreSQL</li><li>Qdrant</li><li>FinBERT</li><li>Celery</li>
+            <li>Rust</li><li>Tokio</li><li>Polymarket CLOB</li><li>Alloy</li><li>Poisson MLE</li><li>Kelly Criterion</li><li>Backtesting</li>
+          </ul>
+          <div class="row__links">
+            <a class="mlink" href="https://github.com/juancal28/nba-total-score-bot" target="_blank" rel="noopener noreferrer">View code <svg class="arrow"><use href="#arw"/></svg></a>
+          </div>
+        </div>
+        <a class="row__media" href="https://github.com/juancal28/nba-total-score-bot" target="_blank" rel="noopener noreferrer" aria-label="View the NBA Totals Bot on GitHub">
+          <img src="assets/img/nba-totals.svg" alt="Diagram: first-quarter points per minute with a fitted Poisson rate, and the projected game total with its confidence interval against the market line" width="720" height="360" loading="lazy" decoding="async">
+        </a>
+      </article>
+
+      <article class="row row--work reveal">
+        <p class="mono row__idx">02</p>
+        <div class="row__body">
+          <h3 class="row__title">ScreenInhibitor — Screen Time Limits for iOS</h3>
+          <p class="row__text">An iOS app that puts a hard budget on distracting apps. Each limit gives a group of apps one shared allowance, then blocks them all for a set period, enforced through Apple's Screen Time frameworks by a DeviceActivity monitor extension. Breaks lift every limit for a few minutes, once per break per day, and edits to them only take effect at the next midnight, so changing the settings is never a way to get more time today. While an app is blocked, a Messages tab keeps direct messages reachable in a web view with the Reels feed stripped out in three layers: WebKit content rules, a native navigation policy, and injected JavaScript. A reel shared in a DM still plays, but is locked so that swiping cannot reach another one. The policy logic is written as pure functions and covered by XCTest.</p>
+          <ul class="row__tags mono">
+            <li>Swift</li><li>SwiftUI</li><li>FamilyControls</li><li>DeviceActivity</li><li>ManagedSettings</li><li>WKWebView</li><li>XCTest</li>
+          </ul>
+          <p class="mono">Private repository &nbsp;·&nbsp; v1.1.0</p>
+        </div>
+        <div class="row__media">
+          <img src="assets/img/screen-inhibitor.svg" alt="Diagram of the Limits screen: one limit counting down a shared allowance, one in its block, and the day's breaks" width="720" height="400" loading="lazy" decoding="async">
+        </div>
+      </article>
+
+      <article class="row row--work reveal">
+        <p class="mono row__idx">03</p>
+        <div class="row__body">
+          <h3 class="row__title">Japanese Conjugation Practice — Drills from Your Own Anki Decks</h3>
+          <p class="row__text">A conjugation trainer that drills the verbs and adjectives from your own Anki decks, such as a single textbook chapter, instead of a fixed word list. Importing an .apkg file parses the deck, looks up each card's part of speech in JMdict, and has Claude review every card to normalize conjugated entries and skip nouns and phrases; a review table then previews live conjugations so mistakes stand out before the deck is saved. Answer keys come from a deterministic conjugation engine, not from the model, and golden tests check it against Steven Kraft's practice page, which the quiz is modeled on. A reference page lists the rule behind every accepted answer, and a test fails if any answer has no rule.</p>
+          <ul class="row__tags mono">
+            <li>TypeScript</li><li>React</li><li>Vite</li><li>Express</li><li>Vitest</li><li>Anthropic Claude API</li><li>JMdict</li>
+          </ul>
+          <div class="row__links">
+            <a class="mlink" href="https://github.com/juancal28/JapaneseConjugationPracticeWebsite" target="_blank" rel="noopener noreferrer">View code <svg class="arrow"><use href="#arw"/></svg></a>
+          </div>
+        </div>
+        <a class="row__media" href="https://github.com/juancal28/JapaneseConjugationPracticeWebsite" target="_blank" rel="noopener noreferrer" aria-label="View Japanese Conjugation Practice on GitHub">
+          <img src="assets/img/conjugation.svg" alt="Diagram of a quiz card asking for the polite past negative of a verb, answered in kana" width="540" height="420" loading="lazy" decoding="async">
+        </a>
+      </article>
+
+      <article class="row row--work reveal">
+        <p class="mono row__idx">04</p>
+        <div class="row__body">
+          <h3 class="row__title">Quant News-RAG Trading System</h3>
+          <p class="row__text">An autonomous paper-trading system that reads financial news, proposes changes to its own strategy, and trades $100K of simulated capital. News from RSS feeds is deduplicated, embedded into Qdrant, and scored for sentiment with FinBERT. A Claude-backed RAG agent proposes minimal, citation-backed strategy adjustments, which must pass a validator (approved tickers, position limits, change scope) and a quality score built from evidence strength, recency, sentiment consensus, and coverage before they reach approval, which can be manual, time-gated, or fully autonomous. Backtests over a one-year in-sample and 90-day out-of-sample window stay available on demand. The backtest engine, paper broker, and risk checks are compiled to native C++ via pybind11, a 2% daily-loss circuit breaker halts trading, and a <code>quant</code> CLI with a live dashboard runs the whole system on Railway.</p>
+          <ul class="row__tags mono">
+            <li>Python</li><li>C++ / pybind11</li><li>FastAPI</li><li>Celery + Redis</li><li>PostgreSQL</li><li>Qdrant</li><li>FinBERT</li><li>Anthropic Claude API</li><li>Typer</li>
           </ul>
           <div class="row__links">
             <a class="mlink" href="https://github.com/juancal28/quantAlgoV1" target="_blank" rel="noopener noreferrer">View code <svg class="arrow"><use href="#arw"/></svg></a>
@@ -144,15 +288,14 @@
       </article>
 
       <article class="row row--work reveal">
-        <p class="mono row__idx">02</p>
+        <p class="mono row__idx">05</p>
         <div class="row__body">
           <h3 class="row__title">Homely — Full-Stack Home Services Marketplace</h3>
-          <p class="row__text">A dual-sided marketplace platform connecting homeowners with trade professionals. Features a competitive bidding system, AI-powered design advisory chat using the Anthropic Claude API with real-time streaming, location-based provider matching, real-time messaging, JWT authentication with role-based access control, and a multi-channel notification system. Built as an installable PWA with Capacitor integration for native iOS and Android builds.</p>
+          <p class="row__text">A dual-sided marketplace connecting homeowners with trade professionals, with a consumer app and a separate Pro Portal for jobs, scheduling, earnings, and messages. Homeowners browse verified subcontractors by specialty and location, collect competing bids, book and track work, and browse land listings. An AI assistant built on the Anthropic Claude API streams its answers, retrieves from a RAG pipeline over ingested documents, and acts through an MCP tool server, with LLM-as-judge tests covering the tool loop. Authentication uses JWT with role-based access and email verification for logins from a new device, and secret scanning runs in a pre-commit hook and in CI. Ships as an installable PWA with Capacitor shells for iOS and Android.</p>
           <ul class="row__tags mono">
-            <li>React 19</li><li>TypeScript</li><li>Node.js</li><li>PostgreSQL</li><li>Anthropic Claude API</li><li>Capacitor</li>
+            <li>React 19</li><li>TypeScript</li><li>Node.js / Express</li><li>PostgreSQL</li><li>Anthropic Claude API</li><li>LangChain</li><li>MCP</li><li>Capacitor</li>
           </ul>
           <div class="row__links">
-            <a class="mlink" href="https://github.com/juancal28/Homely" target="_blank" rel="noopener noreferrer">View code <svg class="arrow"><use href="#arw"/></svg></a>
             <a class="mlink" href="https://homely.casa" target="_blank" rel="noopener noreferrer">Live site <svg class="arrow"><use href="#arw"/></svg></a>
           </div>
         </div>
@@ -162,29 +305,29 @@
       </article>
 
       <article class="row row--work reveal">
-        <p class="mono row__idx">03</p>
+        <p class="mono row__idx">06</p>
         <div class="row__body">
-          <h3 class="row__title">Deterministic World Generation — Java Scroller Game</h3>
-          <p class="row__text">A basic 2D scroller game where the player can enter a seed number to deterministically generate a world. Features such as saving and loading worlds were implemented. My own implementation of Prim's Algorithm was used to generate the world by creating a minimum spanning tree.</p>
+          <h3 class="row__title">Deterministic World Generation — Java Dungeon Explorer</h3>
+          <p class="row__text">A 2D tile-based dungeon explorer in Java where any seed deterministically generates the same world. The 60×45 grid is partitioned into zones, rooms of random size are placed with collision detection, and my own implementation of Prim's algorithm connects them with a minimum spanning tree of L-shaped hallways. A fog-of-war mode computes line of sight with Bresenham's line algorithm, and saving stores only the seed and the player's inputs, then replays them on load.</p>
           <ul class="row__tags mono">
-            <li>Java</li><li>Prim's Algorithm</li><li>Algorithm Design</li><li>Object-Oriented Programming</li><li>Version Control</li>
+            <li>Java</li><li>Prim's Algorithm</li><li>Bresenham's Line Algorithm</li><li>Procedural Generation</li><li>Object-Oriented Programming</li>
           </ul>
           <div class="row__links">
             <a class="mlink" href="https://github.com/juancal28/DeterministicWorldCreation/tree/main/proj3/src" target="_blank" rel="noopener noreferrer">View code <svg class="arrow"><use href="#arw"/></svg></a>
           </div>
         </div>
         <div class="row__media">
-          <img src="assets/img/world-gen.webp" alt="Generated world rendered in the Java scroller game" width="1400" height="710" loading="lazy" decoding="async">
+          <img src="assets/img/world-gen.webp" alt="Generated world rendered in the Java dungeon explorer" width="1400" height="710" loading="lazy" decoding="async">
         </div>
       </article>
 
       <article class="row row--work reveal">
-        <p class="mono row__idx">04</p>
+        <p class="mono row__idx">07</p>
         <div class="row__body">
           <h3 class="row__title">WordNet</h3>
-          <p class="row__text">Created and visualized a hyponym graph of the WordNet dataset using my own unique implementation of graphs, Breadth-First Search, and Depth-First Search. The graph covered over 800 years of English language records. I also implemented several JUnit tests to ensure the correctness of the graph. I utilized several handler functions to break down the complexity of the WordNet's functions.</p>
+          <p class="row__text">Created and visualized a hyponym graph of the WordNet dataset using my own implementation of graphs, breadth-first search, and depth-first search. It sits on top of a Google NGrams explorer that charts how word usage changes across centuries of published English: word-frequency data loads into time-series structures, and a Java web server answers queries for one or many words with plots or text histories. JUnit tests check the data structures and the request handlers.</p>
           <ul class="row__tags mono">
-            <li>Graphs</li><li>Java</li><li>JUnit</li><li>Unit Testing</li><li>Graph Algorithms</li><li>Handler Functions</li>
+            <li>Java</li><li>Graphs</li><li>Graph Algorithms</li><li>JUnit</li><li>Spark Framework</li><li>XChart</li>
           </ul>
           <div class="row__links">
             <a class="mlink" href="https://github.com/juancal28/HyponymGraph" target="_blank" rel="noopener noreferrer">View code <svg class="arrow"><use href="#arw"/></svg></a>
@@ -196,20 +339,21 @@
       </article>
 
       <article class="row row--work reveal">
-        <p class="mono row__idx">05</p>
+        <p class="mono row__idx">08</p>
         <div class="row__body">
           <h3 class="row__title">Tower Stacking Game</h3>
-          <p class="row__text">A challenging puzzle game where you rearrange colored blocks on towers to match a target configuration. Similar to the Towers of Hanoi, this game tests your strategic thinking and planning skills. Features include random puzzle generation with 5–12 blocks, move counter and optimal move calculation, reset button to restart the same puzzle, and a new game button for a fresh challenge.</p>
+          <p class="row__text">A puzzle game in the spirit of the Towers of Hanoi: rearrange colored blocks across towers to match a target configuration in as few moves as possible. Puzzles are generated at random with 5–12 blocks, and a breadth-first search over game states finds the optimal move count, which the game can replay as an animated solution. Includes a move counter, a reset for the same puzzle, and a new-game button, and it runs in the browser.</p>
           <ul class="row__tags mono">
-            <li>JavaScript</li><li>CSS</li><li>HTML</li><li>Game Development</li><li>Algorithm Design</li>
+            <li>JavaScript</li><li>HTML</li><li>CSS</li><li>Breadth-First Search</li><li>Game Development</li>
           </ul>
           <div class="row__links">
+            <a class="mlink" href="https://juancal28.github.io/TowerStackingGame/" target="_blank" rel="noopener noreferrer">Play it <svg class="arrow"><use href="#arw"/></svg></a>
             <a class="mlink" href="https://github.com/juancal28/TowerStackingGame" target="_blank" rel="noopener noreferrer">View code <svg class="arrow"><use href="#arw"/></svg></a>
           </div>
         </div>
-        <div class="row__media">
+        <a class="row__media" href="https://juancal28.github.io/TowerStackingGame/" target="_blank" rel="noopener noreferrer" aria-label="Play the Tower Stacking Game">
           <img src="assets/img/towers.webp" alt="Tower Stacking Game interface" width="1400" height="1147" loading="lazy" decoding="async">
-        </div>
+        </a>
       </article>
 
     </div>
@@ -217,15 +361,18 @@
 </section>
 
 <!-- ======================================================== RESEARCH -->
-<section class="band band--warm" id="research">
+<section class="band" id="research">
   <div class="shell">
     <header class="head reveal">
       <div class="head__meta">
-        <p class="mono">Section : 02</p>
-        <p class="mono">Emory &nbsp;/&nbsp; Georgia Tech</p>
+        <p class="mono">Section : 03</p>
+        <p class="mono">Emory &nbsp;/&nbsp; Georgia Tech &nbsp;/&nbsp; UC Berkeley</p>
       </div>
       <h2 class="head__title">Research &amp; publications.</h2>
-      <p class="head__note">Computational drug discovery and organometallic catalysis, carried out between 2022 and 2024.</p>
+      <p class="head__note">Computational drug discovery and organometallic catalysis between 2022 and 2024, and deep learning research at Berkeley in 2026.</p>
+      <div class="row__links">
+        <a class="mlink" href="https://scholar.google.com/citations?user=jnRrpqcAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar profile <svg class="arrow"><use href="#arw"/></svg></a>
+      </div>
     </header>
 
     <div class="rows">
@@ -296,77 +443,28 @@
         </a>
       </article>
 
-    </div>
-  </div>
-</section>
-
-<!-- ======================================================== EXPERIENCE -->
-<section class="band" id="experience">
-  <div class="shell">
-    <header class="head reveal">
-      <div class="head__meta">
-        <p class="mono">Section : 03</p>
-        <p class="mono">2022 — 2025</p>
-      </div>
-      <h2 class="head__title">Experience.</h2>
-    </header>
-
-    <div class="rows">
-
-      <article class="row row--exp reveal">
-        <p class="mono">May 2025 — Aug 2025</p>
-        <div>
-          <h3 class="exp__role">Software Development Engineer Intern</h3>
-          <p class="exp__org">Amazon Web Services (AWS)</p>
-          <ul class="exp__list">
-            <li>Built CI/CD pipelines deploying ECS Fargate services across AWS (S3, Glue, DataZone, Athena).</li>
-            <li>Developed, trained, and optimized Retrieval Augmented Generation (RAG) agents and created a front-end for their use to analyze data sets with 100,000+ entries on SMUS.</li>
-            <li>Coordinated team of 6 interns to develop multi-agent application to automate client workflows, starting from code ideation to full-stack implementation.</li>
-          </ul>
+      <article class="row row--pub row--media reveal">
+        <p class="mono row__idx">04</p>
+        <div class="pub__meta">
+          <p class="mono mono--ink">UC Berkeley &nbsp;·&nbsp; CS 182</p>
+          <p class="mono">2026 &nbsp;·&nbsp; Course research project</p>
+          <p class="tag">In progress</p>
         </div>
+        <div class="row__body">
+          <h3 class="row__title">“How Does the Optimizer Shape Generalization in In-Context Regression?”</h3>
+          <p class="row__text row__authors">Arihant Kaul, Phil Liu, Nayan Ramakrishnan, <strong>Juan Calderon</strong></p>
+          <p class="row__text">Transformers pretrained on a finite pool of linear-regression tasks show a task-diversity threshold: below it they memorize the pool, and above it they learn ridge regression and generalize to unseen tasks. That threshold has been measured almost only under Adam, so we ask whether the optimizer (SGD, AdamW, or Muon) moves it, and whether the shift can be predicted from how fast each optimizer learns regression versus how fast it memorizes. I built the experiment runner: a PyTorch port of the Raventós et al. recipe in which one seed fixes the task pool, the initial weights, and the data stream across a 54-run grid of pool sizes, optimizers, and batch sizes, with resumable runs and one worker per GPU. In a preliminary single-seed sweep at 20,000 steps per run, the threshold fell near 2<sup>9.7</sup> tasks under AdamW and 2<sup>10.8</sup> under Muon. The full grid is 500,000 steps per run across four seeds.</p>
+          <div class="row__links">
+            <a class="mlink" href="https://github.com/juancal28/cs182ProjectExperiments/blob/main/proposal/cs182_proposal.pdf" target="_blank" rel="noopener noreferrer">Proposal (PDF) <svg class="arrow"><use href="#arw"/></svg></a>
+            <a class="mlink" href="https://github.com/juancal28/cs182ProjectExperiments" target="_blank" rel="noopener noreferrer">View code <svg class="arrow"><use href="#arw"/></svg></a>
+          </div>
+        </div>
+        <a class="row__media row__media--doc" href="https://github.com/juancal28/cs182ProjectExperiments/blob/main/proposal/cs182_proposal.pdf" target="_blank" rel="noopener noreferrer" aria-label="Read the project proposal on GitHub">
+          <img src="assets/img/icl-proposal.webp" alt="First page of the project proposal: title, team, and abstract" width="1100" height="687" loading="lazy" decoding="async">
+          <span class="mono row__media__cue">Proposal &nbsp;·&nbsp; 2 pages</span>
+        </a>
       </article>
 
-      <article class="row row--exp reveal">
-        <p class="mono">Jun 2022 — Aug 2024</p>
-        <div>
-          <h3 class="exp__role">Research Assistant</h3>
-          <p class="exp__org">Emory University</p>
-          <ul class="exp__list">
-            <li>Integrated novel computational drug-discovery research techniques into formerly in-vitro biochemistry lab.</li>
-            <li>Published findings in Q2 journal after multiple phases of research, analyzing 6,000+ small molecules.</li>
-            <li>Utilized Bash and MobaXterm to automate custom scripts and research software on remote Emory supercomputers.</li>
-            <li>Expanded research with databases of 2,000,000+ small molecules.</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="row row--exp reveal">
-        <p class="mono">Jul 2023 — May 2024</p>
-        <div>
-          <h3 class="exp__role">Research Assistant</h3>
-          <p class="exp__org">Georgia Institute of Technology</p>
-          <ul class="exp__list">
-            <li>Developed novel procedures for synthesizing fuel precursors from carbon dioxide and other greenhouse gases.</li>
-            <li>Conducted literature reviews on 40+ articles, analyzing the synthesis of precursor molecules.</li>
-          </ul>
-        </div>
-      </article>
-
-    </div>
-
-    <div class="skills skills--spaced">
-      <div class="skills__group reveal">
-        <p class="mono">Languages &amp; frameworks</p>
-        <ul class="skills__set">
-          <li>Java</li><li>Python</li><li>C++</li><li>C</li><li>RISC-V</li><li>JavaScript</li><li>React</li><li>Node.js</li><li>SQL</li><li>Bash</li>
-        </ul>
-      </div>
-      <div class="skills__group reveal">
-        <p class="mono">Infrastructure &amp; tooling</p>
-        <ul class="skills__set">
-          <li>Kubernetes</li><li>Docker</li><li>AWS</li><li>LangGraph</li><li>LangChain</li><li>MobaXterm</li><li>Git</li><li>CI/CD</li><li>Linux</li><li>Grafana</li><li>AI Agent Development</li><li>Cluster Computing</li><li>Unit Testing</li>
-        </ul>
-      </div>
     </div>
   </div>
 </section>
@@ -440,6 +538,11 @@
         <p class="contact__val">github.com/juancal28</p>
         <span class="mono contact__go">Open <svg class="arrow"><use href="#arw"/></svg></span>
       </a>
+      <a class="contact__row" href="https://scholar.google.com/citations?user=jnRrpqcAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">
+        <p class="mono">Scholar</p>
+        <p class="contact__val">scholar.google.com — Juan Calderon</p>
+        <span class="mono contact__go">Open <svg class="arrow"><use href="#arw"/></svg></span>
+      </a>
     </div>
   </div>
 </section>
@@ -451,9 +554,9 @@
   <div class="shell footer__inner">
     <p class="mono">© 2026 Juan Calderon</p>
     <nav class="footer__links mono" aria-label="Footer">
+      <a href="#experience">Experience</a>
       <a href="#work">Work</a>
       <a href="#research">Research</a>
-      <a href="#experience">Experience</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
